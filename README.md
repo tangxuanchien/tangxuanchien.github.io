@@ -15,6 +15,19 @@ https://tangxuanchien.github.io/
 | `assets/` | CSS, JS, icons, screenshots |
 | `tools/build.py` | Generator: all HTML above is produced from it |
 
+## Pull data from Google Play
+
+For apps with a public Play page, `tools/fetch_store.py` (uses
+[google-play-scraper](https://pypi.org/project/google-play-scraper/)) downloads the store icon, feature graphic,
+screenshots and EN/VI descriptions into `assets/img/<slug>/` and `content/store/<slug>.json`; `build.py` then uses
+them instead of the hand-written text. Apps in internal/closed testing have no public page and are skipped.
+
+```bash
+pip install google-play-scraper pillow
+python tools/fetch_store.py
+python tools/build.py
+```
+
 ## Edit & rebuild
 
 1. Change app data in `APPS` at the top of `tools/build.py` (set `"status": "live"` once an app is public — that

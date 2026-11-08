@@ -477,7 +477,45 @@ def write(rel: str, text: str) -> None:
     print("wrote", rel)
 
 
+def split_description(text: str):
+    """Store full description -> (intro, bullet lines, trailing paragraphs)."""
+    intro, bullets, tail = [], [], []
+    for line in (l.strip() for l in text.replace("\r", "").split("\n")):
+        if not line:
+            continue
+        if line[0] in "•-*✓✔":
+            bullets.append(line.lstrip("•-*✓✔ ").strip())
+        elif bullets:
+            tail.append(line)
+        else:
+            intro.append(line)
+    return " ".join(intro), bullets, " ".join(tail)
+
+
+def apply_store_data() -> None:
+    """Use content/store/<slug>.json (written by tools/fetch_store.py) when it exists."""
+    import json
+    for a in APPS:
+        p = ROOT / "content" / "store" / f"{a['slug']}.json"
+        if not p.exists():
+            continue
+        d = json.loads(p.read_text(encoding="utf-8"))
+        a["name"] = d["title"]
+        a["tagline"] = tuple(d["summary"])
+        a["category"] = tuple(d["genre"])
+        a["landscape"] = d.get("landscape", False)
+        (en_i, en_b, en_t), (vi_i, vi_b, vi_t) = (split_description(x) for x in d["description"])
+        if en_i:
+            a["about"] = (en_i, vi_i or en_i)
+        if en_b:
+            vi_b = vi_b if len(vi_b) == len(en_b) else en_b
+            a["features"] = list(zip(en_b, vi_b))
+        if en_t:
+            a["note"] = (en_t, vi_t or en_t)
+
+
 def main() -> None:
+    apply_store_data()
     write("index.html", home())
     write("404.html", not_found())
     urls = ["/"]
