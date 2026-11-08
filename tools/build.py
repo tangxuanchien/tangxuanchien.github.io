@@ -208,6 +208,17 @@ PLAY_SVG = (
     '<path fill="#00f076" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7z"/></svg>'
 )
 ARROW = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+FLAG_VN = (
+    '<svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DA251D"/>'
+    '<path fill="#FFFF00" d="M15 4l1.76 5.41h5.69l-4.6 3.35 1.76 5.41L15 14.82l-4.61 3.35 1.76-5.41-4.6-3.35h5.69z"/></svg>'
+)
+FLAG_EN = (
+    '<svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk-c"><path d="M0 0v30h60V0z"/></clipPath>'
+    '<clipPath id="uk-t"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#uk-c)">'
+    '<path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>'
+    '<path d="M0 0l60 30m0-30L0 30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/>'
+    '<path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>'
+)
 MAIL = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
 
 
@@ -266,7 +277,7 @@ def nav() -> str:
       <a href="/#contact">{t(("Contact", "Liên hệ"))}</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set="vi">VN</button><button type="button" data-set="en">EN</button>
+      <button type="button" data-set="vi" aria-label="Tiếng Việt">{FLAG_VN}<span>VN</span></button><button type="button" data-set="en" aria-label="English">{FLAG_EN}<span>EN</span></button>
     </div>
   </div>
 </header>"""
@@ -281,7 +292,7 @@ def footer() -> str:
   <div class="container footer-in">
     <div>
       <a class="logo" href="/"><span class="logo-mark">tx</span><span class="logo-word">{BRAND}</span></a>
-      <p class="muted">{t(("Independent mobile apps, made in Vietnam.", "Ứng dụng di động độc lập, làm tại Việt Nam."))}</p>
+      <p class="muted">{t(("Independent mobile apps for people everywhere.", "Ứng dụng di động độc lập cho mọi người, ở mọi nơi."))}</p>
     </div>
     <div>
       <h3>{t(("Privacy policies", "Chính sách quyền riêng tư"))}</h3>
@@ -342,7 +353,7 @@ def home() -> str:
 <section class="hero container">
   <div class="hero-copy">
     <h1>{t(("Small apps,", "Ứng dụng nhỏ,"))}<br><em>{t(("made with care", "làm bằng tâm huyết"))}</em></h1>
-    <p class="lead">{t(("TXC Labs is an independent studio from Vietnam building camera, creative and game apps that are simple, fast and respectful of your privacy.", "TXC Labs là studio độc lập tại Việt Nam, làm ứng dụng camera, sáng tạo và game đơn giản, nhanh và tôn trọng quyền riêng tư của bạn."))}</p>
+    <p class="lead">{t(("TXC Labs is an independent studio building camera, creative and game apps for users around the world: simple, fast and respectful of your privacy.", "TXC Labs là studio độc lập làm ứng dụng camera, sáng tạo và game cho người dùng trên toàn thế giới: đơn giản, nhanh và tôn trọng quyền riêng tư của bạn."))}</p>
     <div class="hero-cta">
       <a class="btn btn-dark btn-lg" href="#apps">{t(("Explore apps", "Khám phá ứng dụng"))}<span class="btn-ico">{ARROW}</span></a>
       <a class="link link-underline" href="{DEV_URL}" target="_blank" rel="noopener">{t(("Our Google Play page", "Trang Google Play của chúng tôi"))} {ARROW}</a>
@@ -368,12 +379,11 @@ def home() -> str:
 <section id="about" class="band">
   <div class="container band-in">
     <p class="eyebrow eyebrow-light"><span class="dots"></span>{t(("About", "Giới thiệu"))}</p>
-    <h2>{t(("Built in Vietnam,", "Làm tại Việt Nam,"))} <em>{t(("for everyone", "cho mọi người"))}</em></h2>
+    <h2>{t(("Made for everyone,", "Làm cho mọi người,"))} <em>{t(("everywhere", "ở mọi nơi"))}</em></h2>
     <div class="stats">
       <div><strong>{n}</strong><span>{t(("apps and games", "ứng dụng và game"))}</span></div>
       <div><strong>{len(live)}</strong><span>{t(("live on Google Play, more coming soon", "đã lên Google Play, thêm nhiều app sắp ra mắt"))}</span></div>
-      <div><strong>2</strong><span>{t(("languages: English & Tiếng Việt", "ngôn ngữ: Tiếng Việt & English"))}</span></div>
-      <div><strong>0</strong><span>{t(("accounts required", "tài khoản bắt buộc"))}</span></div>
+      <div><strong>{t(("Global", "Toàn cầu"))}</strong><span>{t(("built for users worldwide", "hướng tới người dùng khắp thế giới"))}</span></div>
     </div>
   </div>
 </section>

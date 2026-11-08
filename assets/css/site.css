@@ -64,7 +64,9 @@ html[lang="en"] [data-lang="vi"], html[lang="vi"] [data-lang="en"] { display: no
 @media (min-width: 720px) { .nav-links { display: flex; } }
 .lang { margin-left: auto; display: inline-flex; padding: 4px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; }
 @media (min-width: 720px) { .lang { margin-left: 8px; } }
-.lang button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .78rem; font-weight: 700; padding: 6px 11px; border-radius: 999px; cursor: pointer; min-width: 40px; min-height: 30px; }
+.lang button { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .78rem; font-weight: 700; padding: 6px 11px 6px 8px; border-radius: 999px; cursor: pointer; min-width: 40px; min-height: 32px; }
+.lang .flag { width: 20px; height: 14px; border-radius: 3px; flex: none; box-shadow: 0 0 0 1px rgba(10, 15, 31, .12); opacity: .7; transition: opacity .15s; }
+.lang button[aria-pressed="true"] .flag, .lang button:hover .flag { opacity: 1; }
 .lang button[aria-pressed="true"] { background: var(--card); color: var(--fg); box-shadow: 0 1px 4px rgba(10, 15, 31, .1); }
 
 /* buttons */
@@ -137,10 +139,10 @@ main { overflow-x: clip; }
 .band h2 em { background: linear-gradient(90deg, #8eaaff, #c6f432); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .stats { display: grid; gap: 28px; margin-top: 44px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1000px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .stats { grid-template-columns: repeat(3, 1fr); } }
 .stats div { border-top: 1px solid rgba(255, 255, 255, .18); padding-top: 18px; }
 .stats strong { display: block; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
-.stats span { color: rgba(255, 255, 255, .72); font-size: .95rem; }
+.stats div > span { color: rgba(255, 255, 255, .72); font-size: .95rem; }
 
 /* values */
 .values { display: grid; gap: 20px; }
