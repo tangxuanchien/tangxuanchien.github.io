@@ -132,6 +132,15 @@ FLAG_EN = (
 MAIL = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
 
 
+def fmt_count(n: int) -> str:
+    """44 -> 44, 1234 -> 1.2K, 2500000 -> 2.5M."""
+    for div, suffix in ((1_000_000_000, "B"), (1_000_000, "M"), (1_000, "K")):
+        if n >= div:
+            v = n / div
+            return (f"{v:.1f}".rstrip("0").rstrip(".") if v < 100 else f"{v:.0f}") + suffix
+    return str(n)
+
+
 def play_button(app, big: bool = False) -> str:
     cls = "btn btn-dark" + (" btn-lg" if big else "")
     if app["status"] == "live":
@@ -244,6 +253,19 @@ def home() -> str:
     cards = "\n".join(app_card(a) for a in APPS)
     n = len(APPS)
     live = [a for a in APPS if a["status"] == "live"]
+    total_installs = sum(int(a.get("install_count") or 0) for a in live)
+    rows = "".join(
+        f'<a class="inst-row" href="/apps/{a["slug"]}/"><img src="{a["icon"]}" alt="" width="44" height="44" loading="lazy">'
+        f'<span class="inst-name">{esc(a["short"])}</span>'
+        f'<span class="inst-num"><strong>{fmt_count(int(a.get("install_count") or 0))}</strong> {t(("installs", "lượt cài"))}</span></a>'
+        for a in sorted(live, key=lambda a: -int(a.get("install_count") or 0))
+    )
+    installs_list = (
+        f'<div class="installs"><h3>{t(("Installs by app", "Lượt cài theo từng app"))}</h3>'
+        f'<div class="inst-grid">{rows}</div>'
+        f'<p class="inst-note">{t(("Live figures from Google Play, updated daily.", "Số liệu từ Google Play, cập nhật mỗi ngày."))}</p></div>'
+        if rows else ""
+    )
     featured = "".join(
         f"""<section class="section container featured">
   <div class="feat card">
@@ -291,10 +313,12 @@ def home() -> str:
     <p class="eyebrow eyebrow-light"><span class="dots"></span>{t(("About", "Giới thiệu"))}</p>
     <h2>{t(("Made for everyone,", "Làm cho mọi người,"))} <em>{t(("everywhere", "ở mọi nơi"))}</em></h2>
     <div class="stats">
+      <div><strong>{fmt_count(total_installs)}</strong><span>{t(("total installs across our live apps", "tổng lượt cài của các app đã phát hành"))}</span></div>
       <div><strong>{n}</strong><span>{t(("apps and games", "ứng dụng và game"))}</span></div>
       <div><strong>{len(live)}</strong><span>{t(("live on Google Play, more coming soon", "đã lên Google Play, thêm nhiều app sắp ra mắt"))}</span></div>
-      <div><strong>{t(("Global", "Toàn cầu"))}</strong><span>{t(("built for users worldwide", "hướng tới người dùng khắp thế giới"))}</span></div>
+      <div><strong class="word">{t(("Global", "Toàn cầu"))}</strong><span>{t(("built for users worldwide", "hướng tới người dùng khắp thế giới"))}</span></div>
     </div>
+    {installs_list}
   </div>
 </section>
 

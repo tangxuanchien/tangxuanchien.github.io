@@ -104,6 +104,10 @@ def fetch(a: dict) -> bool:
 
     d["store_images"] = current
     d["status"] = "live"
+    # Install counts from the public Play page: "installs" is Play's label (e.g. "10+"),
+    # "install_count" the exact figure Play exposes (falls back to the label's minimum).
+    d["installs"] = en.get("installs") or ""
+    d["install_count"] = int(en.get("realInstalls") or en.get("minInstalls") or 0)
     d["name"] = en["title"]
     d["tagline"] = {"en": en["summary"], "vi": vi["summary"]}
     d["category"] = {"en": en["genre"], "vi": vi["genre"]}
@@ -122,7 +126,7 @@ def fetch(a: dict) -> bool:
         d["screenshots"] = [f"/assets/img/{a['slug']}/shot-{i}.webp" for i in range(1, len(shots) + 1)]
         d["landscape"] = landscape
     path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"ok   {a['slug']}: icon, {'banner, ' if en.get('headerImage') else ''}{len(shots)} screenshots, EN/VI text")
+    print(f"ok   {a['slug']}: icon, {'banner, ' if en.get('headerImage') else ''}{len(shots)} screenshots, EN/VI text, {d['install_count']} installs")
     return True
 
 
