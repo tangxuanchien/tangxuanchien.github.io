@@ -102,7 +102,7 @@ def banner(app) -> str:
 
 
 def shots_strip(app) -> str:
-    cls = "shots shots-land" if app.get("landscape") else "shots"
+    cls = "shots shots-land rv" if app.get("landscape") else "shots rv"
     imgs = "".join(
         f'<img src="{n}" alt="{esc(app["short"])} screenshot {i}" loading="lazy">'
         for i, n in enumerate(shots(app), 1)
@@ -141,6 +141,20 @@ def fmt_count(n: int) -> str:
     return str(n)
 
 
+def app_facts(a) -> str:
+    """Install count and store facts for live apps (data from tools/fetch_store.py)."""
+    if a["status"] != "live" or not a.get("install_count"):
+        return ""
+    n = int(a["install_count"])
+    facts = [
+        f'<div class="fact"><strong data-count="{n}">{fmt_count(n)}</strong><span>{t(("installs", "lượt cài"))}</span></div>',
+    ]
+    if a.get("installs"):
+        facts.append(f'<div class="fact"><strong>{esc(a["installs"])}</strong><span>{t(("on Google Play", "trên Google Play"))}</span></div>')
+    facts.append(f'<div class="fact"><strong class="fact-sm">{t(a["category"])}</strong><span>{t(("category", "danh mục"))}</span></div>')
+    return f'<div class="facts">{"".join(facts)}</div>'
+
+
 def play_button(app, big: bool = False) -> str:
     cls = "btn btn-dark" + (" btn-lg" if big else "")
     if app["status"] == "live":
@@ -153,6 +167,12 @@ def status_pill(app) -> str:
     if app["status"] == "live":
         return f'<span class="pill pill-live">{t(("On Google Play", "Đã lên Google Play"))}</span>'
     return f'<span class="pill pill-test">{t(("In testing", "Đang thử nghiệm"))}</span>'
+
+
+def asset_version(rel: str) -> str:
+    """Short content hash, so browsers fetch the new file as soon as it changes (Pages caches for 10 min)."""
+    import hashlib
+    return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 
 def page(title: str, desc: str, body: str, path: str, image: str = "/assets/img/og.png") -> str:
@@ -173,21 +193,21 @@ def page(title: str, desc: str, body: str, path: str, image: str = "/assets/img/
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,600..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/site.css?v={asset_version("assets/css/site.css")}">
 <script>(function(){{document.documentElement.classList.add('js');try{{var l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang');if(!l)l=(navigator.language||'').toLowerCase().indexOf('vi')===0?'vi':'en';document.documentElement.lang=l}}catch(e){{}}}})();</script>
 </head>
 <body>
 {nav()}
 {body}
 {footer()}
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v={asset_version("assets/js/site.js")}" defer></script>
 </body>
 </html>
 """
 
 
 def nav() -> str:
-    return f"""<header class="nav">
+    return f"""<header class="nav"><div class="progress" aria-hidden="true"></div>
   <div class="container nav-in">
     <a class="logo" href="/" aria-label="{BRAND} home"><span class="logo-mark">tx</span><span class="logo-word">{BRAND}</span></a>
     <nav class="nav-links" aria-label="Main">
@@ -230,7 +250,7 @@ def app_card(a) -> str:
     b = banner(a)
     cover = (f'<a class="card-cover" href="/apps/{a["slug"]}/" tabindex="-1" aria-hidden="true"><img src="{b}" alt="" loading="lazy" width="1024" height="500"></a>'
              if b else '<div class="card-cover card-cover-empty"></div>')
-    return f"""<article class="card app-card">
+    return f"""<article class="card app-card rv">
   {cover}
   <div class="card-top">
     <span class="chip">{t(a["category"])}</span>{status_pill(a)}
@@ -255,9 +275,9 @@ def home() -> str:
     live = [a for a in APPS if a["status"] == "live"]
     total_installs = sum(int(a.get("install_count") or 0) for a in live)
     rows = "".join(
-        f'<a class="inst-row" href="/apps/{a["slug"]}/"><img src="{a["icon"]}" alt="" width="44" height="44" loading="lazy">'
+        f'<a class="inst-row rv" href="/apps/{a["slug"]}/"><img src="{a["icon"]}" alt="" width="44" height="44" loading="lazy">'
         f'<span class="inst-name">{esc(a["short"])}</span>'
-        f'<span class="inst-num"><strong>{fmt_count(int(a.get("install_count") or 0))}</strong> {t(("installs", "lượt cài"))}</span></a>'
+        f'<span class="inst-num"><strong data-count="{int(a.get("install_count") or 0)}">{fmt_count(int(a.get("install_count") or 0))}</strong> {t(("installs", "lượt cài"))}</span></a>'
         for a in sorted(live, key=lambda a: -int(a.get("install_count") or 0))
     )
     installs_list = (
@@ -266,13 +286,20 @@ def home() -> str:
         f'<p class="inst-note">{t(("Live figures from Google Play, updated daily.", "Số liệu từ Google Play, cập nhật mỗi ngày."))}</p></div>'
         if rows else ""
     )
+    chips = "".join(
+        f'<a class="mq-item" href="/apps/{a["slug"]}/"><img src="{a["icon"]}" alt="" width="40" height="40" loading="lazy"><span>{esc(a["short"])}</span></a>'
+        for a in APPS
+    )
+    marquee = (f'<div class="marquee" aria-label="Our apps"><div class="mq-track">'
+               f'<div class="mq-set">{chips}</div><div class="mq-set" aria-hidden="true">{chips}</div></div></div>')
     featured = "".join(
         f"""<section class="section container featured">
-  <div class="feat card">
+  <div class="feat card rv">
     <div class="feat-copy">
       <p class="eyebrow"><span class="dots"></span>{t(("Now on Google Play", "Đã có trên Google Play"))}</p>
       <div class="feat-head"><img class="app-icon" src="{a["icon"]}" alt="" width="72" height="72"><h2>{esc(a["name"])}</h2></div>
       <p class="lead">{t(a.get("about", a["tagline"]))}</p>
+      {app_facts(a)}
       <ul class="ticks">{"".join(f"<li>{t(f)}</li>" for f in a["features"][:4])}</ul>
       <div class="hero-cta">{play_button(a, big=True)}<a class="link link-underline" href="/apps/{a["slug"]}/">{t(("Learn more", "Xem thêm"))} {ARROW}</a></div>
     </div>
@@ -282,7 +309,7 @@ def home() -> str:
         for a in live
     )
     body = f"""<main>
-<section class="hero container">
+<section class="hero container intro">
   <div class="hero-copy">
     <h1>{t(("Small apps,", "Ứng dụng nhỏ,"))}<br><em>{t(("made with care", "làm bằng tâm huyết"))}</em></h1>
     <p class="lead">{t(("TXC Labs is an independent studio building camera, creative and game apps for users around the world: simple, fast and respectful of your privacy.", "TXC Labs là studio độc lập làm ứng dụng camera, sáng tạo và game cho người dùng trên toàn thế giới: đơn giản, nhanh và tôn trọng quyền riêng tư của bạn."))}</p>
@@ -293,10 +320,11 @@ def home() -> str:
   </div>
   <div class="hero-art" aria-hidden="true"><div class="cluster">{cluster}</div></div>
 </section>
+{marquee}
 {featured}
 
 <section id="apps" class="section container">
-  <div class="section-head">
+  <div class="section-head rv">
     <div>
       <p class="eyebrow"><span class="dots"></span>{t(("Our apps", "Sản phẩm"))}</p>
       <h2>{t(("Apps we're", "Những app chúng tôi"))} <em>{t(("building", "đang làm"))}</em></h2>
@@ -313,31 +341,31 @@ def home() -> str:
     <p class="eyebrow eyebrow-light"><span class="dots"></span>{t(("About", "Giới thiệu"))}</p>
     <h2>{t(("Made for everyone,", "Làm cho mọi người,"))} <em>{t(("everywhere", "ở mọi nơi"))}</em></h2>
     <div class="stats">
-      <div><strong>{fmt_count(total_installs)}</strong><span>{t(("total installs across our live apps", "tổng lượt cài của các app đã phát hành"))}</span></div>
-      <div><strong>{n}</strong><span>{t(("apps and games", "ứng dụng và game"))}</span></div>
-      <div><strong>{len(live)}</strong><span>{t(("live on Google Play, more coming soon", "đã lên Google Play, thêm nhiều app sắp ra mắt"))}</span></div>
-      <div><strong class="word">{t(("Global", "Toàn cầu"))}</strong><span>{t(("built for users worldwide", "hướng tới người dùng khắp thế giới"))}</span></div>
+      <div class="rv"><strong data-count="{total_installs}">{fmt_count(total_installs)}</strong><span>{t(("total installs across our live apps", "tổng lượt cài của các app đã phát hành"))}</span></div>
+      <div class="rv"><strong data-count="{n}">{n}</strong><span>{t(("apps and games", "ứng dụng và game"))}</span></div>
+      <div class="rv"><strong data-count="{len(live)}">{len(live)}</strong><span>{t(("live on Google Play, more coming soon", "đã lên Google Play, thêm nhiều app sắp ra mắt"))}</span></div>
+      <div class="rv"><strong class="word">{t(("Global", "Toàn cầu"))}</strong><span>{t(("built for users worldwide", "hướng tới người dùng khắp thế giới"))}</span></div>
     </div>
     {installs_list}
   </div>
 </section>
 
 <section class="section container">
-  <div class="section-head">
+  <div class="section-head rv">
     <div>
       <p class="eyebrow"><span class="dots"></span>{t(("How we work", "Cách chúng tôi làm"))}</p>
       <h2>{t(("Three things we", "Ba điều chúng tôi"))} <em>{t(("care about", "luôn giữ"))}</em></h2>
     </div>
   </div>
   <div class="values">
-    <div class="card value reveal"><span class="num">01</span><h3>{t(("Privacy first", "Quyền riêng tư trước tiên"))}</h3><p class="muted">{t(("Your photos and progress stay on your device. We only collect what an app truly needs, and say so plainly.", "Ảnh và tiến độ của bạn nằm trên máy bạn. Chúng tôi chỉ thu thập những gì app thực sự cần và nói rõ điều đó."))}</p></div>
-    <div class="card value reveal"><span class="num">02</span><h3>{t(("Works offline", "Chạy được offline"))}</h3><p class="muted">{t(("Wherever we can, apps run fully on-device, so they're quick and work without a connection.", "Khi có thể, app chạy hoàn toàn trên máy để nhanh và dùng được cả khi không có mạng."))}</p></div>
-    <div class="card value reveal"><span class="num">03</span><h3>{t(("Small & polished", "Nhỏ gọn & chỉn chu"))}</h3><p class="muted">{t(("Fewer features, done well: smooth motion, clear screens and a light install size.", "Ít tính năng nhưng làm kỹ: chuyển động mượt, màn hình rõ ràng và dung lượng nhẹ."))}</p></div>
+    <div class="card value rv"><span class="num">01</span><h3>{t(("Privacy first", "Quyền riêng tư trước tiên"))}</h3><p class="muted">{t(("Your photos and progress stay on your device. We only collect what an app truly needs, and say so plainly.", "Ảnh và tiến độ của bạn nằm trên máy bạn. Chúng tôi chỉ thu thập những gì app thực sự cần và nói rõ điều đó."))}</p></div>
+    <div class="card value rv"><span class="num">02</span><h3>{t(("Works offline", "Chạy được offline"))}</h3><p class="muted">{t(("Wherever we can, apps run fully on-device, so they're quick and work without a connection.", "Khi có thể, app chạy hoàn toàn trên máy để nhanh và dùng được cả khi không có mạng."))}</p></div>
+    <div class="card value rv"><span class="num">03</span><h3>{t(("Small & polished", "Nhỏ gọn & chỉn chu"))}</h3><p class="muted">{t(("Fewer features, done well: smooth motion, clear screens and a light install size.", "Ít tính năng nhưng làm kỹ: chuyển động mượt, màn hình rõ ràng và dung lượng nhẹ."))}</p></div>
   </div>
 </section>
 
 <section id="contact" class="section container">
-  <div class="cta card">
+  <div class="cta card rv">
     <div>
       <h2>{t(("Let's", "Hãy"))} <em>{t(("talk", "trò chuyện"))}</em></h2>
       <p class="muted">{t(("Feedback, bug reports or partnership ideas: we read every email.", "Góp ý, báo lỗi hay ý tưởng hợp tác: chúng tôi đọc mọi email."))}</p>
@@ -357,7 +385,7 @@ def app_page(a) -> str:
     if strip:
         gallery = f'<section class="section container sec-tight"><h2 class="h-sm">{t(("Screenshots", "Ảnh màn hình"))}</h2>{strip}</section>'
     b = banner(a)
-    cover = f'<div class="app-banner"><img src="{b}" alt="{esc(a["short"])} feature graphic" width="1024" height="500"></div>' if b else ""
+    cover = f'<div class="app-banner rv"><img class="zoom" src="{b}" alt="{esc(a["short"])} feature graphic" width="1024" height="500"></div>' if b else ""
     about = f'<p class="about">{t(a["about"])}</p>' if a.get("about") else ""
     note = f'<p class="muted small note">{t(a["note"])}</p>' if a.get("note") else ""
     feats = "".join(f"<li>{t(f)}</li>" for f in a["features"])
@@ -378,14 +406,15 @@ def app_page(a) -> str:
       <div class="card-top"><span class="chip">{t(a["category"])}</span>{status_pill(a)}</div>
       <h1 class="h-app">{esc(a["name"])}</h1>
       <p class="lead">{t(a["tagline"])}</p>
+      {app_facts(a)}
       <div class="hero-cta">{play_button(a, big=True)}<a class="link link-underline" href="mailto:{EMAIL}?subject={esc(a["short"])}">{t(("Send feedback", "Gửi góp ý"))} {ARROW}</a></div>
     </div>
   </div>
 </section>
 {gallery}
 <section class="section container two-col">
-  <div class="card"><h2 class="h-sm">{t(("About this app", "Về ứng dụng"))}</h2>{about}<ul class="ticks">{feats}</ul>{note}</div>
-  <div class="card"><h2 class="h-sm">{t(("Legal & support", "Pháp lý & hỗ trợ"))}</h2>{legal_html}<a class="legal-link" href="mailto:{EMAIL}">{t(("Contact support", "Liên hệ hỗ trợ"))} {ARROW}</a>{pkg}</div>
+  <div class="card rv"><h2 class="h-sm">{t(("About this app", "Về ứng dụng"))}</h2>{about}<ul class="ticks">{feats}</ul>{note}</div>
+  <div class="card rv"><h2 class="h-sm">{t(("Legal & support", "Pháp lý & hỗ trợ"))}</h2>{legal_html}<a class="legal-link" href="mailto:{EMAIL}">{t(("Contact support", "Liên hệ hỗ trợ"))} {ARROW}</a>{pkg}</div>
 </section>
 </main>"""
     return page(f"{a['name']} — {BRAND}", a["tagline"][0], body, f"/apps/{a['slug']}/",
