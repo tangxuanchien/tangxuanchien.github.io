@@ -172,7 +172,8 @@ def status_pill(app) -> str:
 def asset_version(rel: str) -> str:
     """Short content hash, so browsers fetch the new file as soon as it changes (Pages caches for 10 min)."""
     import hashlib
-    return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+    data = (ROOT / rel).read_bytes().replace(bytes([13, 10]), bytes([10]))  # CRLF -> LF: same hash on Windows and CI
+    return hashlib.sha1(data).hexdigest()[:8]
 
 
 def page(title: str, desc: str, body: str, path: str, image: str = "/assets/img/og.png") -> str:
