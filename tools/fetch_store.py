@@ -73,18 +73,26 @@ def fetch(a: dict) -> bool:
 
     out = ROOT / "assets" / "img" / a["slug"]
     out.mkdir(parents=True, exist_ok=True)
+    path = ROOT / "content" / "apps" / f"{a['slug']}.json"
+    d = json.loads(path.read_text(encoding="utf-8"))
+    # Store image URLs change when an image is replaced on Play; only re-download then,
+    # so daily runs don't create commits from re-encoding the same picture.
+    seen = d.get("store_images") or {}
+    shots = en.get("screenshots") or []
+    current = {"icon": en["icon"], "header": en.get("headerImage") or "", "screenshots": shots}
 
-    icon = get_image(sized(en["icon"], "s512")).convert("RGBA")
-    icon.resize((256, 256), Image.LANCZOS).save(out / "icon.webp", quality=90)
-    icon.resize((128, 128), Image.LANCZOS).save(out / "icon-128.png")
+    if seen.get("icon") != current["icon"] or not (out / "icon.webp").exists():
+        icon = get_image(sized(en["icon"], "s512")).convert("RGBA")
+        icon.resize((256, 256), Image.LANCZOS).save(out / "icon.webp", quality=90)
+        icon.resize((128, 128), Image.LANCZOS).save(out / "icon-128.png")
 
-    if en.get("headerImage"):
-        hdr = get_image(sized(en["headerImage"], "w1024")).convert("RGB")
+    if current["header"] and (seen.get("header") != current["header"] or not (out / "banner.webp").exists()):
+        hdr = get_image(sized(current["header"], "w1024")).convert("RGB")
         hdr.save(out / "banner.webp", quality=86)  # keep the store's own size and ratio
 
-    shots = en.get("screenshots") or []
-    landscape = False
-    if shots:
+    landscape = d.get("landscape", False)
+    if shots and seen.get("screenshots") != shots:
+        landscape = False
         for f in out.glob("shot-*.webp"):
             f.unlink()
         for i, url in enumerate(shots, 1):
@@ -94,8 +102,7 @@ def fetch(a: dict) -> bool:
             w = 960 if landscape else 540
             im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(out / f"shot-{i}.webp", quality=84)
 
-    path = ROOT / "content" / "apps" / f"{a['slug']}.json"
-    d = json.loads(path.read_text(encoding="utf-8"))
+    d["store_images"] = current
     d["status"] = "live"
     d["name"] = en["title"]
     d["tagline"] = {"en": en["summary"], "vi": vi["summary"]}

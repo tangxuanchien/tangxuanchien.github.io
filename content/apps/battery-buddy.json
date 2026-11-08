@@ -57,5 +57,16 @@
     "/assets/img/battery-buddy/shot-5.webp"
   ],
   "privacy": "content/legal/battery-buddy-privacy.html",
-  "terms": "content/legal/battery-buddy-terms.html"
+  "terms": "content/legal/battery-buddy-terms.html",
+  "store_images": {
+    "icon": "https://play-lh.googleusercontent.com/eckWcgXvf68F79c2zPI6nRvb4MlCufM17mHMcH1B_EDY5Ctc7w8c2_JgkM4qAzdXnPmPb1wgV2tn_JeZEzes",
+    "header": "https://play-lh.googleusercontent.com/lkiVRWo6zyb4d8DHBGCAWua5Bbt851_UJUQg7-upyGGZO58Ax5w3kFf0A84TkclZLVbR07O52YcOlnAPP2H9",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/RpS24qk9VijULS4_2geAdZl2Kr3guKJEu_NiXiRIOLIAPCn6RYixUkIikF9zrzECtE8-EDK9KwxIDWzw33Gz",
+      "https://play-lh.googleusercontent.com/pQlvUMMKkArroFOxnkQL_dxKvEqTYsaQV-fELgaD63pWL8U31vKOXjpgfNiTAu_Wt97TYENVFQ8XShKwCII3wQ",
+      "https://play-lh.googleusercontent.com/jfwE1RxmhxEEcgGkvfWZ5xrDG5NJ5f5zeSBOT0jG8HZEO-MHzWMMBpVERut1gxhq7_WiP_jPNv1g7Yq5T8nr8D4",
+      "https://play-lh.googleusercontent.com/4ThZ7g_FdeW2dkxvp9zjLl_yoM0oT3Ugso8FQgpf10ZnnxYN747F3lUdhOGU8YSiVStYz-eCNWocOIpGoMU5kz8",
+      "https://play-lh.googleusercontent.com/WI-IuXeCYESoPCcW6C-npUYEti8YZzJ3OIAjiKpiRxQDtPSOH9Plo2NjFNyuaVQezp_fW1A9LPPcLOKz4aO3"
+    ]
+  }
 }
