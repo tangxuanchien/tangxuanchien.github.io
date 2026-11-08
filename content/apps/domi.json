@@ -1,0 +1,47 @@
+{
+  "name": "Domi: Photobooth Camera",
+  "short": "Domi",
+  "package": "com.txclabs.photobooth",
+  "status": "testing",
+  "order": 20,
+  "category": {
+    "en": "Photography",
+    "vi": "Nhiếp ảnh"
+  },
+  "tagline": {
+    "en": "Make photobooth strips with cute frames, layouts, stickers and filters.",
+    "vi": "Tạo dải ảnh photobooth với khung xinh, bố cục, sticker và bộ lọc."
+  },
+  "about": {
+    "en": "Domi turns your phone into a photobooth. Pick a frame by theme, choose a layout, then shoot right inside the frame or use photos from your gallery. Finish with filters, stickers and text, and save or share your strip in the exact frame ratio.",
+    "vi": "Domi biến điện thoại thành một quầy photobooth. Chọn khung theo chủ đề, chọn bố cục rồi chụp ngay trong khung hoặc lấy ảnh từ thư viện. Hoàn thiện với bộ lọc, sticker và chữ, sau đó lưu hoặc chia sẻ đúng tỉ lệ khung."
+  },
+  "features": [
+    {
+      "en": "Hundreds of themed frames, updated over time",
+      "vi": "Hàng trăm khung theo chủ đề, cập nhật liên tục"
+    },
+    {
+      "en": "Shoot inside the frame or pick from your gallery",
+      "vi": "Chụp ngay trong khung hoặc chọn ảnh từ thư viện"
+    },
+    {
+      "en": "Filters, stickers and text in one editor",
+      "vi": "Bộ lọc, sticker và chữ trong một trình chỉnh sửa"
+    },
+    {
+      "en": "Save and share in the original frame ratio",
+      "vi": "Lưu và chia sẻ đúng tỉ lệ khung"
+    }
+  ],
+  "landscape": false,
+  "icon": "/assets/img/domi/icon.webp",
+  "banner": "/assets/img/domi/banner.webp",
+  "screenshots": [
+    "/assets/img/domi/shot-1.webp",
+    "/assets/img/domi/shot-2.webp",
+    "/assets/img/domi/shot-3.webp"
+  ],
+  "privacy": "content/legal/domi-privacy.html",
+  "terms": "content/legal/domi-terms.html"
+}

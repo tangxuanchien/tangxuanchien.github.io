@@ -1,0 +1,47 @@
+{
+  "name": "Colorumi: Color by Number",
+  "short": "Colorumi",
+  "package": "com.txclabs.color",
+  "status": "testing",
+  "order": 30,
+  "category": {
+    "en": "Art & Design",
+    "vi": "Nghệ thuật"
+  },
+  "tagline": {
+    "en": "Relaxing pixel color-by-number, plus turn your own photos into paintings.",
+    "vi": "Tô tranh pixel theo số thư giãn, và biến ảnh của bạn thành tranh tô màu."
+  },
+  "about": {
+    "en": "Colorumi turns tiny color cells into vivid pictures. Choose a picture you like, find each color by its number and watch the image appear with every tap. Explore pixel art across animals, food, flowers and landscapes, or turn your own photo into a new picture to color.",
+    "vi": "Colorumi biến từng ô màu nhỏ thành một bức tranh rực rỡ. Chọn tranh bạn thích, tìm màu theo số và tận hưởng cảm giác hình ảnh dần hiện ra sau mỗi lần chạm. Khám phá tranh pixel nhiều chủ đề như động vật, đồ ăn, hoa lá, phong cảnh, hoặc dùng ảnh của bạn để tạo tranh tô số mới."
+  },
+  "features": [
+    {
+      "en": "Pixel art across animals, food, flowers and places",
+      "vi": "Tranh pixel đủ chủ đề động vật, đồ ăn, hoa lá, phong cảnh"
+    },
+    {
+      "en": "Pixelfy: create a new picture from any photo",
+      "vi": "Pixelfy: tạo tranh mới từ bất kỳ ảnh nào"
+    },
+    {
+      "en": "Daily picture, streaks and hints",
+      "vi": "Tranh mỗi ngày, chuỗi tô màu và gợi ý"
+    },
+    {
+      "en": "No account needed, progress saved on device",
+      "vi": "Không cần tài khoản, tiến độ lưu trên máy"
+    }
+  ],
+  "landscape": false,
+  "icon": "/assets/img/colorumi/icon.webp",
+  "banner": "/assets/img/colorumi/banner.webp",
+  "screenshots": [
+    "/assets/img/colorumi/shot-1.webp",
+    "/assets/img/colorumi/shot-2.webp",
+    "/assets/img/colorumi/shot-3.webp"
+  ],
+  "privacy": "content/legal/colorumi-privacy.html",
+  "terms": "content/legal/colorumi-terms.html"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "BitArcade: GBA Emulator",
+  "short": "BitArcade",
+  "package": "com.txclabs.gba",
+  "status": "testing",
+  "order": 50,
+  "category": {
+    "en": "Games",
+    "vi": "Trò chơi"
+  },
+  "tagline": {
+    "en": "A clean, fast Game Boy Advance and Game Boy Color emulator for your own game files.",
+    "vi": "Trình giả lập Game Boy Advance và Game Boy Color gọn nhẹ, mượt cho game của chính bạn."
+  },
+  "about": {
+    "en": "BitArcade is a pocket arcade for classic handheld games. Load your own GBA, GB and GBC game files, play with responsive on-screen controls and pick up exactly where you left off with save states. No games are included.",
+    "vi": "BitArcade là máy chơi game cầm tay bỏ túi cho các game cổ điển. Mở file game GBA, GB và GBC của bạn, chơi bằng tay cầm trên màn hình nhạy và tiếp tục đúng chỗ đang chơi nhờ lưu trạng thái. Ứng dụng không kèm game."
+  },
+  "features": [
+    {
+      "en": "GBA, GB and GBC support",
+      "vi": "Hỗ trợ GBA, GB và GBC"
+    },
+    {
+      "en": "Save states and on-screen controls",
+      "vi": "Lưu trạng thái và tay cầm trên màn hình"
+    },
+    {
+      "en": "Library that organises your files",
+      "vi": "Thư viện sắp xếp file game của bạn"
+    },
+    {
+      "en": "No games included: bring your own backups",
+      "vi": "Không kèm game: bạn dùng bản sao lưu của mình"
+    }
+  ],
+  "landscape": false,
+  "icon": "/assets/img/bitarcade/icon.webp",
+  "banner": "/assets/img/bitarcade/banner.webp",
+  "screenshots": [
+    "/assets/img/bitarcade/shot-1.webp",
+    "/assets/img/bitarcade/shot-2.webp",
+    "/assets/img/bitarcade/shot-3.webp",
+    "/assets/img/bitarcade/shot-4.webp"
+  ],
+  "privacy": "",
+  "terms": ""
+}

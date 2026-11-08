@@ -1,0 +1,114 @@
+# Pages CMS config — edit the site at https://app.pagescms.org (sign in with GitHub).
+# Each app is one JSON file in content/apps/. Saving in the CMS commits to main;
+# the "Build site" GitHub Action then regenerates the HTML and GitHub Pages redeploys.
+
+media:
+  input: assets/img
+  output: /assets/img
+
+content:
+  - name: apps
+    label: Apps
+    type: collection
+    path: content/apps
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: short
+      fields: [short, status, order]
+      sort: [order, short]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: short
+        label: Short name (also the page URL, e.g. "Battery Buddy" -> /apps/battery-buddy/)
+        type: string
+        required: true
+      - name: name
+        label: Full store name
+        type: string
+        required: true
+      - name: package
+        label: Package name (applicationId)
+        description: Used for the Google Play button and to pull store data automatically.
+        type: string
+      - name: status
+        label: Status
+        description: "live = shows the Google Play button; testing = shows Coming soon."
+        type: select
+        default: testing
+        options:
+          values: [testing, live]
+      - name: order
+        label: Order on the home page (smaller first)
+        type: number
+        default: 100
+      - name: hidden
+        label: Hide this app from the site
+        type: boolean
+        default: false
+      - name: sync_store
+        label: Update text and images from Google Play automatically (live apps)
+        description: Untick to keep your own text and images.
+        type: boolean
+        default: true
+      - name: category
+        label: Category
+        type: object
+        fields:
+          - { name: en, label: English, type: string }
+          - { name: vi, label: Tiếng Việt, type: string }
+      - name: tagline
+        label: Short description
+        type: object
+        fields:
+          - { name: en, label: English, type: text }
+          - { name: vi, label: Tiếng Việt, type: text }
+      - name: about
+        label: About (longer description)
+        type: object
+        fields:
+          - { name: en, label: English, type: text }
+          - { name: vi, label: Tiếng Việt, type: text }
+      - name: features
+        label: Highlights
+        type: object
+        list: true
+        fields:
+          - { name: en, label: English, type: string }
+          - { name: vi, label: Tiếng Việt, type: string }
+      - name: note
+        label: Note under the highlights (optional)
+        type: object
+        fields:
+          - { name: en, label: English, type: text }
+          - { name: vi, label: Tiếng Việt, type: text }
+      - name: icon
+        label: Icon (square, 512 x 512)
+        type: image
+      - name: banner
+        label: Header image (feature graphic, 1024 x 500)
+        type: image
+      - name: screenshots
+        label: Screenshots
+        type: image
+        list: true
+      - name: landscape
+        label: Screenshots are landscape
+        type: boolean
+        default: false
+      - name: privacy_html
+        label: Privacy policy
+        description: Leave empty to keep the existing file in content/legal/.
+        type: rich-text
+      - name: terms_html
+        label: Terms of use
+        description: Leave empty to keep the existing file in content/legal/.
+        type: rich-text
+      - name: privacy
+        label: Privacy policy file (advanced)
+        type: string
+      - name: terms
+        label: Terms file (advanced)
+        type: string

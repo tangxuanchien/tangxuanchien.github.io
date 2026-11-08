@@ -1,16 +1,17 @@
-"""Pull public Google Play listing data for every app in tools/build.py.
+"""Pull public Google Play listing data for every app in content/apps/*.json.
 
 Usage (from the repo root):
     pip install google-play-scraper pillow
     python tools/fetch_store.py
     python tools/build.py
 
-For each package that has a public Play page it saves, in assets/img/<slug>/:
-icon.webp + icon-128.png (store icon), banner.webp (store feature graphic),
-shot-N.webp (store screenshots), and content/store/<slug>.json with the EN/VI
-title, short description, full description and category. build.py prefers this
-data over the hand-written text. Apps still in closed/internal testing have no
-public page and are skipped (their local assets stay as they are).
+For each app in content/apps/*.json whose package has a public Play page it saves,
+in assets/img/<slug>/: icon.webp + icon-128.png (store icon), banner.webp (store
+feature graphic) and shot-N.webp (store screenshots), and writes the EN/VI title,
+short description, full description (intro, bullet list, closing note) and
+category into content/apps/<slug>.json. It also marks the app "live".
+Set "sync_store": false in an app's JSON (or untick it in the CMS) to keep your
+own text. Apps in closed/internal testing have no public page and are skipped.
 """
 from __future__ import annotations
 
@@ -41,9 +42,24 @@ def sized(url: str, suffix: str) -> str:
     return url.split("=")[0] + "=" + suffix
 
 
+def split_description(text: str):
+    """Store full description -> (intro, bullet lines, closing paragraphs)."""
+    intro, bullets, tail = [], [], []
+    for line in (x.strip() for x in text.splitlines()):
+        if not line:
+            continue
+        if line[0] in "•-*✓✔":
+            bullets.append(line.lstrip("•-*✓✔ ").strip())
+        elif bullets:
+            tail.append(line)
+        else:
+            intro.append(line)
+    return " ".join(intro), bullets, " ".join(tail)
+
+
 def fetch(a: dict) -> bool:
     pkg = a.get("package")
-    if not pkg:
+    if not pkg or a.get("sync_store") is False:
         return False
     try:
         en = play_app(pkg, lang="en", country="us")
@@ -78,17 +94,27 @@ def fetch(a: dict) -> bool:
             w = 960 if landscape else 540
             im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(out / f"shot-{i}.webp", quality=84)
 
-    data = {
-        "title": en["title"],
-        "summary": [en["summary"], vi["summary"]],
-        "description": [en["description"], vi["description"]],
-        "genre": [en["genre"], vi["genre"]],
-        "landscape": landscape,
-        "url": en["url"],
-    }
-    store = ROOT / "content" / "store"
-    store.mkdir(parents=True, exist_ok=True)
-    (store / f"{a['slug']}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    path = ROOT / "content" / "apps" / f"{a['slug']}.json"
+    d = json.loads(path.read_text(encoding="utf-8"))
+    d["status"] = "live"
+    d["name"] = en["title"]
+    d["tagline"] = {"en": en["summary"], "vi": vi["summary"]}
+    d["category"] = {"en": en["genre"], "vi": vi["genre"]}
+    (ei, eb, et), (vi_i, vb, vt) = split_description(en["description"]), split_description(vi["description"])
+    if ei:
+        d["about"] = {"en": ei, "vi": vi_i or ei}
+    if eb:
+        vb = vb if len(vb) == len(eb) else eb
+        d["features"] = [{"en": x, "vi": y} for x, y in zip(eb, vb)]
+    if et:
+        d["note"] = {"en": et, "vi": vt or et}
+    d["icon"] = f"/assets/img/{a['slug']}/icon.webp"
+    if en.get("headerImage"):
+        d["banner"] = f"/assets/img/{a['slug']}/banner.webp"
+    if shots:
+        d["screenshots"] = [f"/assets/img/{a['slug']}/shot-{i}.webp" for i in range(1, len(shots) + 1)]
+        d["landscape"] = landscape
+    path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"ok   {a['slug']}: icon, {'banner, ' if en.get('headerImage') else ''}{len(shots)} screenshots, EN/VI text")
     return True
 

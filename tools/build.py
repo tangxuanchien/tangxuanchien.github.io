@@ -19,150 +19,43 @@ EMAIL = "tangxuanchien511@gmail.com"
 YEAR = 2026
 DEV_URL = "https://play.google.com/store/apps/dev?id=7260813708846735372"
 
+# App data lives in content/apps/<slug>.json (one file per app, editable in the CMS).
 # status: "live" shows a Google Play button, "testing" shows "Coming soon".
-APPS = [
-    {
-        "slug": "hogicam",
-        "name": "Hogicam: Digital Camera",
-        "short": "Hogicam",
-        "package": "vn.txclabs.digicam",
-        "status": "testing",
-        "category": ("Photography", "Nhiếp ảnh"),
-        "tagline": (
-            "A shelf of retro cameras in your pocket: 35mm film, toy lens, DV camcorder and Y2K CCD.",
-            "Cả kệ máy ảnh retro trong túi: phim 35mm, toy lens, máy quay DV và CCD Y2K.",
-        ),
-        "about": (
-            "Hogicam brings the feel of a vintage camera to your phone. Pick a camera from the shelf, preview its look in the viewfinder, and capture photos with your favorite style. Each camera gives your photos a distinct character with film grain, soft fade, light leaks, vignettes and color effects. Photos are processed on your device and saved to Pictures/Hogicam. No account is needed.",
-            "Hogicam mang cảm giác cầm một chiếc máy ảnh hoài cổ vào điện thoại của bạn. Chọn máy trên kệ, xem trước màu ảnh trong khung ngắm rồi chụp theo phong cách mình thích. Mỗi kiểu máy tạo chất ảnh riêng bằng hạt phim, độ mờ, ánh sáng loé, viền tối và hiệu ứng màu. Ảnh được xử lý ngay trên thiết bị và lưu vào Pictures/Hogicam. Không cần tài khoản.",
-        ),
-        "features": [
-            ("Live film looks right in the viewfinder", "Hiệu ứng phim hiển thị ngay trong khung ngắm"),
-            ("Photo and video, with the same grade on both", "Chụp ảnh và quay video với cùng một tông màu"),
-            ("Instant prints, disposables, B&W and more", "Ảnh lấy liền, máy dùng một lần, đen trắng và nhiều hơn nữa"),
-            ("Fully offline: everything stays on your phone", "Hoạt động offline: mọi thứ nằm trên máy bạn"),
-        ],
-    },
-    {
-        "slug": "domi",
-        "name": "Domi: Photobooth Camera",
-        "short": "Domi",
-        "package": "com.txclabs.photobooth",
-        "status": "testing",
-        "category": ("Photography", "Nhiếp ảnh"),
-        "tagline": (
-            "Make photobooth strips with cute frames, layouts, stickers and filters.",
-            "Tạo dải ảnh photobooth với khung xinh, bố cục, sticker và bộ lọc.",
-        ),
-        "about": (
-            "Domi turns your phone into a photobooth. Pick a frame by theme, choose a layout, then shoot right inside the frame or use photos from your gallery. Finish with filters, stickers and text, and save or share your strip in the exact frame ratio.",
-            "Domi biến điện thoại thành một quầy photobooth. Chọn khung theo chủ đề, chọn bố cục rồi chụp ngay trong khung hoặc lấy ảnh từ thư viện. Hoàn thiện với bộ lọc, sticker và chữ, sau đó lưu hoặc chia sẻ đúng tỉ lệ khung.",
-        ),
-        "features": [
-            ("Hundreds of themed frames, updated over time", "Hàng trăm khung theo chủ đề, cập nhật liên tục"),
-            ("Shoot inside the frame or pick from your gallery", "Chụp ngay trong khung hoặc chọn ảnh từ thư viện"),
-            ("Filters, stickers and text in one editor", "Bộ lọc, sticker và chữ trong một trình chỉnh sửa"),
-            ("Save and share in the original frame ratio", "Lưu và chia sẻ đúng tỉ lệ khung"),
-        ],
-    },
-    {
-        "slug": "colorumi",
-        "name": "Colorumi: Color by Number",
-        "short": "Colorumi",
-        "package": "com.txclabs.color",
-        "status": "testing",
-        "category": ("Art & Design", "Nghệ thuật"),
-        "tagline": (
-            "Relaxing pixel color-by-number, plus turn your own photos into paintings.",
-            "Tô tranh pixel theo số thư giãn, và biến ảnh của bạn thành tranh tô màu.",
-        ),
-        "about": (
-            "Colorumi turns tiny color cells into vivid pictures. Choose a picture you like, find each color by its number and watch the image appear with every tap. Explore pixel art across animals, food, flowers and landscapes, or turn your own photo into a new picture to color.",
-            "Colorumi biến từng ô màu nhỏ thành một bức tranh rực rỡ. Chọn tranh bạn thích, tìm màu theo số và tận hưởng cảm giác hình ảnh dần hiện ra sau mỗi lần chạm. Khám phá tranh pixel nhiều chủ đề như động vật, đồ ăn, hoa lá, phong cảnh, hoặc dùng ảnh của bạn để tạo tranh tô số mới.",
-        ),
-        "features": [
-            ("Pixel art across animals, food, flowers and places", "Tranh pixel đủ chủ đề động vật, đồ ăn, hoa lá, phong cảnh"),
-            ("Pixelfy: create a new picture from any photo", "Pixelfy: tạo tranh mới từ bất kỳ ảnh nào"),
-            ("Daily picture, streaks and hints", "Tranh mỗi ngày, chuỗi tô màu và gợi ý"),
-            ("No account needed, progress saved on device", "Không cần tài khoản, tiến độ lưu trên máy"),
-        ],
-    },
-    {
-        "slug": "battery-buddy",
-        "name": "Battery Buddy: Emoji Battery",
-        "short": "Battery Buddy",
-        "package": "com.txclabs.emoji.battery",
-        "status": "live",
-        "category": ("Entertainment", "Giải trí"),
-        "tagline": (
-            "Add a personal touch to your phone: emoji battery icons, a custom status bar, animated stickers and screen companions.",
-            "Cá nhân hoá điện thoại: biểu tượng pin emoji, thanh trạng thái tuỳ chỉnh, sticker động và bạn đồng hành trên màn hình.",
-        ),
-        # Text below follows the Google Play listing.
-        "about": (
-            "Add a personal touch to your phone with Battery Buddy! Explore various ways to decorate your screen and customize your interface to match your own unique style.",
-            "Thêm dấu ấn riêng cho điện thoại với Battery Buddy! Khám phá nhiều cách trang trí màn hình và tuỳ chỉnh giao diện theo phong cách của bạn.",
-        ),
-        "features": [
-            ("Change your battery display: choose your favorite battery icon and view your actual battery percentage", "Đổi hiển thị pin: chọn biểu tượng pin yêu thích và xem đúng phần trăm pin"),
-            ("Customize the status bar: icons, colors, sizes, backgrounds, date and time", "Tuỳ chỉnh thanh trạng thái: biểu tượng, màu, kích thước, nền, ngày và giờ"),
-            ("Decorate with animated stickers and arrange them however you like", "Trang trí bằng sticker động và sắp xếp tuỳ ý"),
-            ("Screen companions: animated characters with adjustable size and speed", "Bạn đồng hành: nhân vật hoạt hình với kích thước và tốc độ tuỳ chỉnh"),
-            ("Notch Glow: personalize a light accent around the camera", "Notch Glow: hiệu ứng sáng quanh camera theo ý bạn"),
-            ("Save favorite battery icons and stickers", "Lưu biểu tượng pin và sticker yêu thích"),
-        ],
-        "note": (
-            "Accessibility Service disclosure: Battery Buddy uses Android's AccessibilityService API solely to display your chosen stickers and custom status bar/notch overlay on top of other apps, and to detect which app is in the foreground so the overlay can be hidden in apps you exclude. It does not read, collect, store or share your screen content, text, passwords or any personal data, and does not perform actions on your behalf.",
-            "Công bố về Dịch vụ trợ năng: Battery Buddy chỉ dùng AccessibilityService API của Android để hiển thị sticker và lớp phủ thanh trạng thái/tai thỏ bạn chọn trên các ứng dụng khác, và để biết ứng dụng nào đang mở nhằm ẩn lớp phủ trong những ứng dụng bạn loại trừ. Ứng dụng không đọc, thu thập, lưu trữ hay chia sẻ nội dung màn hình, văn bản, mật khẩu hay bất kỳ dữ liệu cá nhân nào, và không thực hiện thao tác thay bạn.",
-        ),
-    },
-    {
-        "slug": "bitarcade",
-        "name": "BitArcade: GBA Emulator",
-        "short": "BitArcade",
-        "package": "com.txclabs.gba",
-        "status": "testing",
-        "category": ("Games", "Trò chơi"),
-        "tagline": (
-            "A clean, fast Game Boy Advance and Game Boy Color emulator for your own game files.",
-            "Trình giả lập Game Boy Advance và Game Boy Color gọn nhẹ, mượt cho game của chính bạn.",
-        ),
-        "about": (
-            "BitArcade is a pocket arcade for classic handheld games. Load your own GBA, GB and GBC game files, play with responsive on-screen controls and pick up exactly where you left off with save states. No games are included.",
-            "BitArcade là máy chơi game cầm tay bỏ túi cho các game cổ điển. Mở file game GBA, GB và GBC của bạn, chơi bằng tay cầm trên màn hình nhạy và tiếp tục đúng chỗ đang chơi nhờ lưu trạng thái. Ứng dụng không kèm game.",
-        ),
-        "features": [
-            ("GBA, GB and GBC support", "Hỗ trợ GBA, GB và GBC"),
-            ("Save states and on-screen controls", "Lưu trạng thái và tay cầm trên màn hình"),
-            ("Library that organises your files", "Thư viện sắp xếp file game của bạn"),
-            ("No games included: bring your own backups", "Không kèm game: bạn dùng bản sao lưu của mình"),
-        ],
-    },
-    {
-        "slug": "zodiac-shards",
-        "name": "Zodiac Shards",
-        "short": "Zodiac Shards",
-        "package": "",
-        "status": "testing",
-        "category": ("Action game", "Game hành động"),
-        "tagline": (
-            "A 2D pixel-art action platformer: collect 12 zodiac stones, unlock 12 armour forms.",
-            "Game hành động pixel 2D: thu thập 12 viên đá con giáp, mở khoá 12 bộ giáp.",
-        ),
-        "about": (
-            "Lam starts as an ordinary villager with a dry branch. Cross the Celestial Board map by map, defeat every enemy and reach the gate to win a zodiac stone. Each stone unlocks a transforming armour with its own moves, and all twelve complete the journey.",
-            "Lam khởi đầu là người thường cầm cành cây khô. Vượt qua từng màn trên bản đồ Thiên Bàn, hạ hết quái và tới cổng để nhận một viên đá con giáp. Mỗi viên mở một bộ giáp biến hình với chiêu thức riêng, đủ mười hai viên là hoàn thành hành trình.",
-        ),
-        "landscape": True,
-        "features": [
-            ("12 hand-made maps across the Celestial Board", "12 màn chơi trên bản đồ Thiên Bàn"),
-            ("Transforming armour inspired by the zodiac", "Bộ giáp biến hình lấy cảm hứng từ 12 con giáp"),
-            ("Collect 12 spirit beasts", "Sưu tập 12 Linh Thú"),
-            ("Progress saved automatically", "Tiến độ tự động lưu"),
-        ],
-    },
-]
 
+
+def _pair(v):
+    if not v:
+        return None
+    if isinstance(v, dict):
+        return (v.get("en", ""), v.get("vi") or v.get("en", ""))
+    return tuple(v)
+
+
+def load_apps() -> list[dict]:
+    import json
+    apps = []
+    for f in sorted((ROOT / "content" / "apps").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("hidden"):
+            continue
+        slug = f.stem
+        a = dict(d)
+        a["slug"] = slug
+        a["short"] = d.get("short") or d["name"].split(":")[0]
+        a["status"] = d.get("status", "testing")
+        for k in ("category", "tagline", "about", "note"):
+            a[k] = _pair(d.get(k))
+        a["category"] = a["category"] or ("App", "Ứng dụng")
+        a["tagline"] = a["tagline"] or ("", "")
+        a["features"] = [_pair(x) for x in d.get("features") or [] if x]
+        a["icon"] = d.get("icon") or f"/assets/img/{slug}/icon.webp"
+        a["screenshots"] = [x if isinstance(x, str) else x.get("image", "") for x in d.get("screenshots") or []]
+        apps.append(a)
+    apps.sort(key=lambda a: (a.get("order", 999), a["name"]))
+    return apps
+
+
+APPS = load_apps()
 
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
@@ -174,27 +67,44 @@ def t(pair, tag: str = "span") -> str:
 
 
 def legal_path(app, kind: str) -> pathlib.Path:
-    return ROOT / "content" / "legal" / f"{app['slug']}-{kind}.html"
+    rel = app.get(kind) or f"content/legal/{app['slug']}-{kind}.html"
+    return ROOT / rel.lstrip("/")
+
+
+def legal_text(app, kind: str) -> str:
+    """Policy HTML: typed in the CMS (privacy_html / terms_html) or a file in content/legal/."""
+    typed = (app.get(f"{kind}_html") or "").strip()
+    if typed:
+        return typed
+    p = legal_path(app, kind)
+    return p.read_text(encoding="utf-8") if p.is_file() else ""
+
+
+def has_legal(app, kind: str) -> bool:
+    return bool(legal_text(app, kind))
 
 
 def play_url(app) -> str:
     return f"https://play.google.com/store/apps/details?id={app['package']}"
 
 
+def exists(url: str) -> bool:
+    return bool(url) and (ROOT / url.lstrip("/")).exists()
+
+
 def shots(app) -> list[str]:
-    d = ROOT / "assets" / "img" / app["slug"]
-    return sorted(p.name for p in d.glob("shot-*.webp"))
+    return [u for u in app["screenshots"] if exists(u)]
 
 
 def banner(app) -> str:
-    p = ROOT / "assets" / "img" / app["slug"] / "banner.webp"
-    return f"/assets/img/{app['slug']}/banner.webp" if p.exists() else ""
+    b = app.get("banner") or f"/assets/img/{app['slug']}/banner.webp"
+    return b if exists(b) else ""
 
 
 def shots_strip(app) -> str:
     cls = "shots shots-land" if app.get("landscape") else "shots"
     imgs = "".join(
-        f'<img src="/assets/img/{app["slug"]}/{n}" alt="{esc(app["short"])} screenshot {i}" loading="lazy">'
+        f'<img src="{n}" alt="{esc(app["short"])} screenshot {i}" loading="lazy">'
         for i, n in enumerate(shots(app), 1)
     )
     return f'<div class="{cls}">{imgs}</div>' if imgs else ""
@@ -286,7 +196,7 @@ def nav() -> str:
 def footer() -> str:
     links = []
     for a in APPS:
-        if legal_path(a, "privacy").exists():
+        if has_legal(a, "privacy"):
             links.append(f'<a href="/apps/{a["slug"]}/privacy/">{esc(a["short"])}</a>')
     return f"""<footer class="footer">
   <div class="container footer-in">
@@ -316,7 +226,7 @@ def app_card(a) -> str:
   <div class="card-top">
     <span class="chip">{t(a["category"])}</span>{status_pill(a)}
   </div>
-  <a class="app-icon-wrap" href="/apps/{a["slug"]}/"><img class="app-icon" src="/assets/img/{a["slug"]}/icon.webp" alt="{esc(a["short"])} icon" width="80" height="80" loading="lazy"></a>
+  <a class="app-icon-wrap" href="/apps/{a["slug"]}/"><img class="app-icon" src="{a["icon"]}" alt="{esc(a["short"])} icon" width="80" height="80" loading="lazy"></a>
   <h3><a href="/apps/{a["slug"]}/">{esc(a["short"])}</a></h3>
   <p class="muted">{t(a["tagline"])}</p>
   <div class="card-bottom">
@@ -328,7 +238,7 @@ def app_card(a) -> str:
 
 def home() -> str:
     cluster = "".join(
-        f'<img src="/assets/img/{a["slug"]}/icon.webp" alt="" width="112" height="112" style="--i:{i}">'
+        f'<img src="{a["icon"]}" alt="" width="112" height="112" style="--i:{i}">'
         for i, a in enumerate(APPS)
     )
     cards = "\n".join(app_card(a) for a in APPS)
@@ -339,7 +249,7 @@ def home() -> str:
   <div class="feat card">
     <div class="feat-copy">
       <p class="eyebrow"><span class="dots"></span>{t(("Now on Google Play", "Đã có trên Google Play"))}</p>
-      <div class="feat-head"><img class="app-icon" src="/assets/img/{a["slug"]}/icon.webp" alt="" width="72" height="72"><h2>{esc(a["name"])}</h2></div>
+      <div class="feat-head"><img class="app-icon" src="{a["icon"]}" alt="" width="72" height="72"><h2>{esc(a["name"])}</h2></div>
       <p class="lead">{t(a.get("about", a["tagline"]))}</p>
       <ul class="ticks">{"".join(f"<li>{t(f)}</li>" for f in a["features"][:4])}</ul>
       <div class="hero-cta">{play_button(a, big=True)}<a class="link link-underline" href="/apps/{a["slug"]}/">{t(("Learn more", "Xem thêm"))} {ARROW}</a></div>
@@ -428,9 +338,9 @@ def app_page(a) -> str:
     note = f'<p class="muted small note">{t(a["note"])}</p>' if a.get("note") else ""
     feats = "".join(f"<li>{t(f)}</li>" for f in a["features"])
     legal = []
-    if legal_path(a, "privacy").exists():
+    if has_legal(a, "privacy"):
         legal.append(f'<a class="legal-link" href="/apps/{a["slug"]}/privacy/">{t(("Privacy Policy", "Chính sách quyền riêng tư"))} {ARROW}</a>')
-    if legal_path(a, "terms").exists():
+    if has_legal(a, "terms"):
         legal.append(f'<a class="legal-link" href="/apps/{a["slug"]}/terms/">{t(("Terms of Use", "Điều khoản sử dụng"))} {ARROW}</a>')
     legal_html = "".join(legal) or f'<p class="muted">{t(("Policies will be published before release.", "Chính sách sẽ được đăng trước khi phát hành."))}</p>'
     pkg = f'<p class="muted small">Package: <code>{esc(a["package"])}</code></p>' if a["package"] else ""
@@ -439,7 +349,7 @@ def app_page(a) -> str:
   <a class="crumb" href="/#apps">← {t(("All apps", "Tất cả ứng dụng"))}</a>
   {cover}
   <div class="app-hero-in">
-    <img class="app-icon app-icon-lg" src="/assets/img/{a["slug"]}/icon.webp" alt="{esc(a["short"])} icon" width="144" height="144">
+    <img class="app-icon app-icon-lg" src="{a["icon"]}" alt="{esc(a["short"])} icon" width="144" height="144">
     <div>
       <div class="card-top"><span class="chip">{t(a["category"])}</span>{status_pill(a)}</div>
       <h1 class="h-app">{esc(a["name"])}</h1>
@@ -455,11 +365,11 @@ def app_page(a) -> str:
 </section>
 </main>"""
     return page(f"{a['name']} — {BRAND}", a["tagline"][0], body, f"/apps/{a['slug']}/",
-                image=f"/assets/img/{a['slug']}/icon-128.png")
+                image=(a["icon"].rsplit("/", 1)[0] + "/icon-128.png") if exists(a["icon"].rsplit("/", 1)[0] + "/icon-128.png") else a["icon"])
 
 
 def legal_page(a, kind: str) -> str:
-    content = legal_path(a, kind).read_text(encoding="utf-8")
+    content = legal_text(a, kind)
     label = ("Privacy Policy", "Chính sách quyền riêng tư") if kind == "privacy" else ("Terms of Use", "Điều khoản sử dụng")
     body = f"""<main class="container legal-wrap">
   <a class="crumb" href="/apps/{a["slug"]}/">← {esc(a["short"])}</a>
@@ -487,45 +397,7 @@ def write(rel: str, text: str) -> None:
     print("wrote", rel)
 
 
-def split_description(text: str):
-    """Store full description -> (intro, bullet lines, trailing paragraphs)."""
-    intro, bullets, tail = [], [], []
-    for line in (l.strip() for l in text.replace("\r", "").split("\n")):
-        if not line:
-            continue
-        if line[0] in "•-*✓✔":
-            bullets.append(line.lstrip("•-*✓✔ ").strip())
-        elif bullets:
-            tail.append(line)
-        else:
-            intro.append(line)
-    return " ".join(intro), bullets, " ".join(tail)
-
-
-def apply_store_data() -> None:
-    """Use content/store/<slug>.json (written by tools/fetch_store.py) when it exists."""
-    import json
-    for a in APPS:
-        p = ROOT / "content" / "store" / f"{a['slug']}.json"
-        if not p.exists():
-            continue
-        d = json.loads(p.read_text(encoding="utf-8"))
-        a["name"] = d["title"]
-        a["tagline"] = tuple(d["summary"])
-        a["category"] = tuple(d["genre"])
-        a["landscape"] = d.get("landscape", False)
-        (en_i, en_b, en_t), (vi_i, vi_b, vi_t) = (split_description(x) for x in d["description"])
-        if en_i:
-            a["about"] = (en_i, vi_i or en_i)
-        if en_b:
-            vi_b = vi_b if len(vi_b) == len(en_b) else en_b
-            a["features"] = list(zip(en_b, vi_b))
-        if en_t:
-            a["note"] = (en_t, vi_t or en_t)
-
-
 def main() -> None:
-    apply_store_data()
     write("index.html", home())
     write("404.html", not_found())
     urls = ["/"]
@@ -533,7 +405,7 @@ def main() -> None:
         write(f"apps/{a['slug']}/index.html", app_page(a))
         urls.append(f"/apps/{a['slug']}/")
         for kind in ("privacy", "terms"):
-            if legal_path(a, kind).exists():
+            if has_legal(a, kind):
                 write(f"apps/{a['slug']}/{kind}/index.html", legal_page(a, kind))
                 urls.append(f"/apps/{a['slug']}/{kind}/")
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

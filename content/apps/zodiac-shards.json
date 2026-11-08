@@ -1,0 +1,48 @@
+{
+  "name": "Zodiac Shards",
+  "short": "Zodiac Shards",
+  "package": "com.indie.zodiacshards",
+  "status": "testing",
+  "order": 60,
+  "category": {
+    "en": "Action game",
+    "vi": "Game hành động"
+  },
+  "tagline": {
+    "en": "A 2D pixel-art action platformer: collect 12 zodiac stones, unlock 12 armour forms.",
+    "vi": "Game hành động pixel 2D: thu thập 12 viên đá con giáp, mở khoá 12 bộ giáp."
+  },
+  "about": {
+    "en": "Lam starts as an ordinary villager with a dry branch. Cross the Celestial Board map by map, defeat every enemy and reach the gate to win a zodiac stone. Each stone unlocks a transforming armour with its own moves, and all twelve complete the journey.",
+    "vi": "Lam khởi đầu là người thường cầm cành cây khô. Vượt qua từng màn trên bản đồ Thiên Bàn, hạ hết quái và tới cổng để nhận một viên đá con giáp. Mỗi viên mở một bộ giáp biến hình với chiêu thức riêng, đủ mười hai viên là hoàn thành hành trình."
+  },
+  "features": [
+    {
+      "en": "12 hand-made maps across the Celestial Board",
+      "vi": "12 màn chơi trên bản đồ Thiên Bàn"
+    },
+    {
+      "en": "Transforming armour inspired by the zodiac",
+      "vi": "Bộ giáp biến hình lấy cảm hứng từ 12 con giáp"
+    },
+    {
+      "en": "Collect 12 spirit beasts",
+      "vi": "Sưu tập 12 Linh Thú"
+    },
+    {
+      "en": "Progress saved automatically",
+      "vi": "Tiến độ tự động lưu"
+    }
+  ],
+  "landscape": true,
+  "icon": "/assets/img/zodiac-shards/icon.webp",
+  "banner": "/assets/img/zodiac-shards/banner.webp",
+  "screenshots": [
+    "/assets/img/zodiac-shards/shot-1.webp",
+    "/assets/img/zodiac-shards/shot-2.webp",
+    "/assets/img/zodiac-shards/shot-3.webp",
+    "/assets/img/zodiac-shards/shot-4.webp"
+  ],
+  "privacy": "",
+  "terms": ""
+}

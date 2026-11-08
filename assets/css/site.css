@@ -59,7 +59,11 @@ html[lang="en"] [data-lang="vi"], html[lang="vi"] [data-lang="en"] { display: no
 .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; }
 .logo-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, #2d5bff, #7aa0ff); color: #fff; font-size: .95rem; font-weight: 800; letter-spacing: -.04em; box-shadow: 0 6px 16px -6px #3d6bff; }
 .nav-links { display: none; gap: 28px; margin-left: auto; font-weight: 600; font-size: .95rem; }
-.nav-links a { color: var(--muted); transition: color .15s; }
+.nav-links a { color: var(--muted); transition: color .15s; display: inline-grid; justify-items: center; }
+/* Both languages share one grid cell, so each link keeps the width of its longer label and the header never shifts. */
+.nav-links a > span { grid-area: 1 / 1; }
+html[lang="en"] .nav-links [data-lang="vi"], html[lang="vi"] .nav-links [data-lang="en"] { display: inline !important; visibility: hidden; }
+.nav-in > .lang { flex: none; }
 .nav-links a:hover { color: var(--fg); }
 @media (min-width: 720px) { .nav-links { display: flex; } }
 .lang { margin-left: auto; display: inline-flex; padding: 4px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; }

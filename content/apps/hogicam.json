@@ -1,0 +1,48 @@
+{
+  "name": "Hogicam: Digital Camera",
+  "short": "Hogicam",
+  "package": "vn.txclabs.digicam",
+  "status": "testing",
+  "order": 10,
+  "category": {
+    "en": "Photography",
+    "vi": "Nhiếp ảnh"
+  },
+  "tagline": {
+    "en": "A shelf of retro cameras in your pocket: 35mm film, toy lens, DV camcorder and Y2K CCD.",
+    "vi": "Cả kệ máy ảnh retro trong túi: phim 35mm, toy lens, máy quay DV và CCD Y2K."
+  },
+  "about": {
+    "en": "Hogicam brings the feel of a vintage camera to your phone. Pick a camera from the shelf, preview its look in the viewfinder, and capture photos with your favorite style. Each camera gives your photos a distinct character with film grain, soft fade, light leaks, vignettes and color effects. Photos are processed on your device and saved to Pictures/Hogicam. No account is needed.",
+    "vi": "Hogicam mang cảm giác cầm một chiếc máy ảnh hoài cổ vào điện thoại của bạn. Chọn máy trên kệ, xem trước màu ảnh trong khung ngắm rồi chụp theo phong cách mình thích. Mỗi kiểu máy tạo chất ảnh riêng bằng hạt phim, độ mờ, ánh sáng loé, viền tối và hiệu ứng màu. Ảnh được xử lý ngay trên thiết bị và lưu vào Pictures/Hogicam. Không cần tài khoản."
+  },
+  "features": [
+    {
+      "en": "Live film looks right in the viewfinder",
+      "vi": "Hiệu ứng phim hiển thị ngay trong khung ngắm"
+    },
+    {
+      "en": "Photo and video, with the same grade on both",
+      "vi": "Chụp ảnh và quay video với cùng một tông màu"
+    },
+    {
+      "en": "Instant prints, disposables, B&W and more",
+      "vi": "Ảnh lấy liền, máy dùng một lần, đen trắng và nhiều hơn nữa"
+    },
+    {
+      "en": "Fully offline: everything stays on your phone",
+      "vi": "Hoạt động offline: mọi thứ nằm trên máy bạn"
+    }
+  ],
+  "landscape": false,
+  "icon": "/assets/img/hogicam/icon.webp",
+  "banner": "/assets/img/hogicam/banner.webp",
+  "screenshots": [
+    "/assets/img/hogicam/shot-1.webp",
+    "/assets/img/hogicam/shot-2.webp",
+    "/assets/img/hogicam/shot-3.webp",
+    "/assets/img/hogicam/shot-4.webp"
+  ],
+  "privacy": "content/legal/hogicam-privacy.html",
+  "terms": ""
+}
