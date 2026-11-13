@@ -43,5 +43,19 @@
     "/assets/img/domi/shot-3.webp"
   ],
   "privacy": "content/legal/domi-privacy.html",
-  "terms": "content/legal/domi-terms.html"
+  "terms": "content/legal/domi-terms.html",
+  "play": {
+    "track": "closed",
+    "version": "3 (1.0.0)",
+    "version_code": 3
+  },
+  "play_images": {
+    "icon": "7d6cb3c2ffb7cb59268777f397e7462044add760",
+    "header": "a81553c7c7289010a04d56476f8c355ee2f56a57",
+    "screenshots": [
+      "eb02fa833630d341be0849c21385a0dc3cd9c044",
+      "5cddc7b5f3b2fe550d1e1da296fc181f90b79a30",
+      "784d17440e5c1255ed3ad56896750e031a038240"
+    ]
+  }
 }

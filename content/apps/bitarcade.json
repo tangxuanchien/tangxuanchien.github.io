@@ -80,5 +80,10 @@
   "note": {
     "en": "SAVE YOUR PROGRESS PLAY YOUR WAY DISCOVER HOMEBREW Explore the sample game collection and discover independently created homebrew games. BitArcade is an emulator. Commercial game ROMs are not included. Only import game files you have the right to use. BitArcade is an independent app and is not affiliated with or endorsed by Nintendo. All trademarks belong to their respective owners.",
     "vi": "LƯU TIẾN TRÌNH CỦA BẠN CHƠI THEO CÁCH CỦA BẠN KHÁM PHÁ GAME TỰ LÀM Khám phá bộ sưu tập game mẫu và tìm hiểu các game tự làm do người dùng tạo ra. BitArcade là một trình giả lập. Không bao gồm các ROM game thương mại. Chỉ nhập các tập tin game mà bạn có quyền sử dụng. BitArcade là một ứng dụng độc lập và không liên kết hoặc được Nintendo chứng thực. Tất cả các nhãn hiệu thuộc về chủ sở hữu tương ứng."
+  },
+  "play": {
+    "track": "production",
+    "version": "4 (1.0.0)",
+    "version_code": 4
   }
 }

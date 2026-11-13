@@ -1,7 +1,7 @@
 name: Build site
 
 # Runs when app data, images or the generator change (including saves from Pages CMS),
-# every day to pick up Google Play listing changes, and on demand from the Actions tab.
+# every 3 hours to pick up Google Play / Play Console changes, and on demand from the Actions tab.
 on:
   push:
     branches: [main]
@@ -11,7 +11,7 @@ on:
       - "tools/**"
       - ".github/workflows/build.yml"
   schedule:
-    - cron: "17 2 * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -33,11 +33,20 @@ jobs:
           python-version: "3.12"
 
       - name: Install tools
-        run: pip install google-play-scraper==1.2.7 pillow
+        run: pip install google-play-scraper==1.2.7 pillow google-auth==2.35.0 requests
 
       - name: Pull Google Play data for live apps
         run: python tools/fetch_store.py
         continue-on-error: true
+
+      # Track, version, private store listing and (with PLAY_REPORTS_BUCKET) installs/subscribers
+      # from Play Console. Skips itself when the PLAY_SERVICE_ACCOUNT secret is not set.
+      - name: Pull Play Console data (Developer API)
+        run: python tools/fetch_play_api.py
+        continue-on-error: true
+        env:
+          PLAY_SERVICE_ACCOUNT: ${{ secrets.PLAY_SERVICE_ACCOUNT }}
+          PLAY_REPORTS_BUCKET: ${{ vars.PLAY_REPORTS_BUCKET }}
 
       - name: Generate HTML
         run: python tools/build.py

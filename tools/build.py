@@ -141,16 +141,40 @@ def fmt_count(n: int) -> str:
     return str(n)
 
 
+TRACK_LABEL = {
+    "internal": ("Internal testing", "Thử nghiệm nội bộ"),
+    "closed": ("Closed testing", "Thử nghiệm kín"),
+    "open": ("Open testing", "Thử nghiệm mở"),
+}
+
+
+def count_fact(n: int, label) -> str:
+    return f'<div class="fact"><strong data-count="{n}">{fmt_count(n)}</strong><span>{t(label)}</span></div>'
+
+
 def app_facts(a) -> str:
-    """Install count and store facts for live apps (data from tools/fetch_store.py)."""
-    if a["status"] != "live" or not a.get("install_count"):
+    """Store facts: public installs (tools/fetch_store.py), plus track, version and
+    subscribers from Play Console (tools/fetch_play_api.py). "show_stats": false hides
+    the Play Console figures."""
+    play = a.get("play") or {}
+    stats = (a.get("play_stats") or {}) if a.get("show_stats", True) else {}
+    facts = []
+    if a["status"] == "live":
+        if a.get("install_count"):
+            facts.append(count_fact(int(a["install_count"]), ("installs", "lượt cài")))
+        if a.get("installs"):
+            facts.append(f'<div class="fact"><strong>{esc(a["installs"])}</strong><span>{t(("on Google Play", "trên Google Play"))}</span></div>')
+    else:
+        if play.get("track") in TRACK_LABEL:
+            facts.append(f'<div class="fact"><strong class="fact-sm">{t(TRACK_LABEL[play["track"]])}</strong><span>{t(("on Google Play", "trên Google Play"))}</span></div>')
+        if stats.get("active_installs"):
+            facts.append(count_fact(int(stats["active_installs"]), ("testers' devices", "máy đang thử nghiệm")))
+    if stats.get("subscribers"):
+        facts.append(count_fact(int(stats["subscribers"]), ("subscribers", "người đăng ký")))
+    if play.get("version"):
+        facts.append(f'<div class="fact"><strong class="fact-sm">{esc(play["version"])}</strong><span>{t(("version", "phiên bản"))}</span></div>')
+    if not facts:
         return ""
-    n = int(a["install_count"])
-    facts = [
-        f'<div class="fact"><strong data-count="{n}">{fmt_count(n)}</strong><span>{t(("installs", "lượt cài"))}</span></div>',
-    ]
-    if a.get("installs"):
-        facts.append(f'<div class="fact"><strong>{esc(a["installs"])}</strong><span>{t(("on Google Play", "trên Google Play"))}</span></div>')
     facts.append(f'<div class="fact"><strong class="fact-sm">{t(a["category"])}</strong><span>{t(("category", "danh mục"))}</span></div>')
     return f'<div class="facts">{"".join(facts)}</div>'
 
@@ -166,7 +190,8 @@ def play_button(app, big: bool = False) -> str:
 def status_pill(app) -> str:
     if app["status"] == "live":
         return f'<span class="pill pill-live">{t(("On Google Play", "Đã lên Google Play"))}</span>'
-    return f'<span class="pill pill-test">{t(("In testing", "Đang thử nghiệm"))}</span>'
+    label = TRACK_LABEL.get((app.get("play") or {}).get("track"), ("In testing", "Đang thử nghiệm"))
+    return f'<span class="pill pill-test">{t(label)}</span>'
 
 
 def asset_version(rel: str) -> str:
@@ -284,7 +309,7 @@ def home() -> str:
     installs_list = (
         f'<div class="installs"><h3>{t(("Installs by app", "Lượt cài theo từng app"))}</h3>'
         f'<div class="inst-grid">{rows}</div>'
-        f'<p class="inst-note">{t(("Live figures from Google Play, updated daily.", "Số liệu từ Google Play, cập nhật mỗi ngày."))}</p></div>'
+        f'<p class="inst-note">{t(("Live figures from Google Play, updated every few hours.", "Số liệu từ Google Play, cập nhật vài giờ một lần."))}</p></div>'
         if rows else ""
     )
     chips = "".join(

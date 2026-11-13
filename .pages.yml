@@ -53,6 +53,11 @@ content:
         description: Untick to keep your own text and images.
         type: boolean
         default: true
+      - name: show_stats
+        label: Show Play Console figures (subscribers, testers' devices)
+        description: Untick to keep subscriber and tester counts off the site.
+        type: boolean
+        default: true
       - name: category
         label: Category
         type: object

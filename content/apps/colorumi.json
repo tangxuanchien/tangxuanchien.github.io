@@ -40,8 +40,24 @@
   "screenshots": [
     "/assets/img/colorumi/shot-1.webp",
     "/assets/img/colorumi/shot-2.webp",
-    "/assets/img/colorumi/shot-3.webp"
+    "/assets/img/colorumi/shot-3.webp",
+    "/assets/img/colorumi/shot-4.webp"
   ],
   "privacy": "content/legal/colorumi-privacy.html",
-  "terms": "content/legal/colorumi-terms.html"
+  "terms": "content/legal/colorumi-terms.html",
+  "play": {
+    "track": "closed",
+    "version": "3 (0.1.0)",
+    "version_code": 3
+  },
+  "play_images": {
+    "icon": "beaef2c84b8384038b353dceeb2e84b205bbdff4",
+    "header": "bb693e6db4760fa4961e94c63d2ad589b35b4cdc",
+    "screenshots": [
+      "6e63804ea90bf623825a1121cbbcf86849facd80",
+      "4a65300c27bb2aa8431b30cb7ac5cb07552b1903",
+      "b8b3d34987f4ab5fa1dad3c8a7b839414978683a",
+      "2e444b92fa37580a07cda35ba76d6c50d3c7d0b9"
+    ]
+  }
 }

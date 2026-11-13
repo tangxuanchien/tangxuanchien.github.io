@@ -44,5 +44,20 @@
     "/assets/img/hogicam/shot-4.webp"
   ],
   "privacy": "content/legal/hogicam-privacy.html",
-  "terms": ""
+  "terms": "",
+  "play": {
+    "track": "closed",
+    "version": "3 (1.0.0)",
+    "version_code": 3
+  },
+  "play_images": {
+    "icon": "9b4b3846ff35e0a8444a2840be1918102c61aa06",
+    "header": "963c24afa8ebed78601e7f4d012839c16d584fda",
+    "screenshots": [
+      "f32fea23f44158dd2f325389b6944078bb29967a",
+      "8a8756c03b2ca79f974a3d9db5e903a8f418bb99",
+      "2e7c98d38f43d01d59d9ab594e9f0d0be5532059",
+      "d289b8625c76fdb55be607cf4560d6e72b40f8bb"
+    ]
+  }
 }

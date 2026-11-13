@@ -27,7 +27,7 @@ https://tangxuanchien.github.io/
    pulls store data, rebuilds, previews and pushes.
 3. **By hand:** edit `content/apps/*.json`, run the commands below, commit and push.
 
-Once a day the Action also pulls Google Play data, so an app that goes public switches to "live" by itself.
+Every 3 hours the Action also pulls Google Play data, so an app that goes public switches to "live" by itself.
 
 ## Pull data from Google Play
 
@@ -41,6 +41,34 @@ pip install google-play-scraper pillow
 python tools/fetch_store.py
 python tools/build.py
 ```
+
+## Pull private data from Play Console (Developer API)
+
+`tools/fetch_play_api.py` reads what the public page can't show: the track each app is on
+(internal / closed / open / production) and its version, the store listing of apps that are **not public yet**
+(text, icon, feature graphic, screenshots, so changes made in Play Console reach the site without the local
+project), and, from the Play Console reports bucket, active installs and active subscribers (`play_stats`).
+It also warns when an app's contact website in Play Console isn't this site (AdMob needs it for `app-ads.txt`).
+Untick "Show Play Console figures" (`"show_stats": false`) to keep subscriber/tester counts off an app's page.
+
+One-time setup:
+
+1. Google Cloud Console: create a project, enable **Google Play Android Developer API**, create a service account,
+   add a JSON key.
+2. Play Console → Users and permissions → invite the service account email with *View app information*
+   (add *View financial data* for subscriber figures).
+3. Play Console → Download reports → copy the Cloud Storage URI (`gs://pubsite_prod_…`).
+4. GitHub repo → Settings → Secrets and variables → Actions: secret `PLAY_SERVICE_ACCOUNT` = the whole JSON key,
+   variable `PLAY_REPORTS_BUCKET` = the bucket name.
+
+Locally: put the key at `.secrets/play-service-account.json` (git-ignored) or set `PLAY_SERVICE_ACCOUNT_FILE`, then
+
+```bash
+pip install google-auth requests google-play-scraper pillow
+python tools/fetch_play_api.py
+```
+
+Without a key the script skips itself and the site uses public data only. Report figures lag about a day.
 
 ## Edit & rebuild
 

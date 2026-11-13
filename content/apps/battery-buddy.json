@@ -70,5 +70,10 @@
     ]
   },
   "installs": "50+",
-  "install_count": 62
+  "install_count": 62,
+  "play": {
+    "track": "production",
+    "version": "4 (1.0.1)",
+    "version_code": 4
+  }
 }
