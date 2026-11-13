@@ -2,36 +2,56 @@
   "name": "BitArcade: GBA Emulator",
   "short": "BitArcade",
   "package": "com.txclabs.gba",
-  "status": "testing",
+  "status": "live",
   "order": 50,
   "category": {
-    "en": "Games",
-    "vi": "Trò chơi"
+    "en": "Entertainment",
+    "vi": "Giải trí"
   },
   "tagline": {
-    "en": "A clean, fast Game Boy Advance and Game Boy Color emulator for your own game files.",
-    "vi": "Trình giả lập Game Boy Advance và Game Boy Color gọn nhẹ, mượt cho game của chính bạn."
+    "en": "Play GBA, Game Boy, Game Boy Color, and NES games. Your pocket arcade.",
+    "vi": "Chơi các game GBA, Game Boy, Game Boy Color và NES. Máy chơi game bỏ túi của bạn."
   },
   "about": {
-    "en": "BitArcade is a pocket arcade for classic handheld games. Load your own GBA, GB and GBC game files, play with responsive on-screen controls and pick up exactly where you left off with save states. No games are included.",
-    "vi": "BitArcade là máy chơi game cầm tay bỏ túi cho các game cổ điển. Mở file game GBA, GB và GBC của bạn, chơi bằng tay cầm trên màn hình nhạy và tiếp tục đúng chỗ đang chơi nhờ lưu trạng thái. Ứng dụng không kèm game."
+    "en": "Bring your retro game library to Android with BitArcade. Play Game Boy Advance, Game Boy, Game Boy Color, and NES games in one app. Import game files from your device, browse your library by console, and pick up where you left off. YOUR GAMES, TOGETHER",
+    "vi": "Mang bộ sưu tập game cổ điển của bạn lên Android với BitArcade. Chơi các game Game Boy Advance, Game Boy, Game Boy Color và NES trong cùng một ứng dụng. Nhập file game từ thiết bị của bạn, duyệt thư viện theo hệ máy và tiếp tục chơi từ nơi bạn đã dừng lại. TRÒ CHƠI CỦA BẠN, CÙNG NHAU"
   },
   "features": [
     {
-      "en": "GBA, GB and GBC support",
-      "vi": "Hỗ trợ GBA, GB và GBC"
+      "en": "Import supported .gba, .gb, .gbc, and .nes game files.",
+      "vi": "Nhập các file game .gba, .gb, .gbc và .nes được hỗ trợ."
     },
     {
-      "en": "Save states and on-screen controls",
-      "vi": "Lưu trạng thái và tay cầm trên màn hình"
+      "en": "Browse your collection by console.",
+      "vi": "Duyệt bộ sưu tập của bạn theo hệ máy."
     },
     {
-      "en": "Library that organises your files",
-      "vi": "Thư viện sắp xếp file game của bạn"
+      "en": "Get started with built-in guides for adding games.",
+      "vi": "Bắt đầu với hướng dẫn tích hợp sẵn để thêm game."
     },
     {
-      "en": "No games included: bring your own backups",
-      "vi": "Không kèm game: bạn dùng bản sao lưu của mình"
+      "en": "Keep your in-game saves on your device.",
+      "vi": "Giữ lại dữ liệu game đã lưu trên thiết bị của bạn."
+    },
+    {
+      "en": "Use Save State and Load State to return to a saved moment.",
+      "vi": "Sử dụng Lưu Trạng Thái và Tải Trạng Thái để quay lại trạng thái đã lưu."
+    },
+    {
+      "en": "Enable auto save to continue when you reopen a game.",
+      "vi": "Bật tự động lưu để tiếp tục khi bạn mở lại game."
+    },
+    {
+      "en": "Play with on-screen controls.",
+      "vi": "Chơi với các điều khiển trên màn hình."
+    },
+    {
+      "en": "Switch between portrait and landscape.",
+      "vi": "Chuyển đổi giữa chế độ dọc và ngang."
+    },
+    {
+      "en": "Adjust sound, volume, and frame skip in Settings.",
+      "vi": "Điều chỉnh âm thanh, âm lượng và bỏ qua khung hình trong Cài đặt."
     }
   ],
   "landscape": false,
@@ -44,5 +64,21 @@
     "/assets/img/bitarcade/shot-4.webp"
   ],
   "privacy": "",
-  "terms": ""
+  "terms": "",
+  "store_images": {
+    "icon": "https://play-lh.googleusercontent.com/GXYB0wrTj5SGYLmg06MO79hzM2Q7q_W8k8qoi0R9eB49eTkz4fZeU-4clVs6F1X3k-G57J4fjnz-LvAX2RIttg",
+    "header": "https://play-lh.googleusercontent.com/uJwV3L9isQiVG5RzmTwV7uz6Nxk7IwqKeVxvSfZFEXiNSVEl4QRkNKve_HTYQO8fhQTJuIhWJ68DBxXZvHm-hw",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/1nKQe96Lccn53QN14Vmd3ZVZf4JteFt3sQ2B-xoWD0uNAV5-P96pJzeYGafjxt8WULgUHmtF079fisJi6QJUaA",
+      "https://play-lh.googleusercontent.com/Dfeh-xR5CLC6Em5OlAEBPn4yhr_0FXwTEZ4El7XeIQhSKdvhtf-42yomlJF3hTByOf-uhJTcmYCSz7CRdiIlb5w",
+      "https://play-lh.googleusercontent.com/OjjWQKiUhabw0eh9b0HL-HCiZ0KDrFahGhYs7F0u6p3oassTSdHNiIOCsWPHWtBm04h8HWJi4hTQ-kMG-CT7OQ",
+      "https://play-lh.googleusercontent.com/2wGBn4ZszSZLb_tbHBkzHUrMVikro6nEtEsOTu0YN41MhlXn3cBfokz8LmE7Z4ZdKdmezjBZlShi3yL2FfMy"
+    ]
+  },
+  "installs": "10+",
+  "install_count": 47,
+  "note": {
+    "en": "SAVE YOUR PROGRESS PLAY YOUR WAY DISCOVER HOMEBREW Explore the sample game collection and discover independently created homebrew games. BitArcade is an emulator. Commercial game ROMs are not included. Only import game files you have the right to use. BitArcade is an independent app and is not affiliated with or endorsed by Nintendo. All trademarks belong to their respective owners.",
+    "vi": "LƯU TIẾN TRÌNH CỦA BẠN CHƠI THEO CÁCH CỦA BẠN KHÁM PHÁ GAME TỰ LÀM Khám phá bộ sưu tập game mẫu và tìm hiểu các game tự làm do người dùng tạo ra. BitArcade là một trình giả lập. Không bao gồm các ROM game thương mại. Chỉ nhập các tập tin game mà bạn có quyền sử dụng. BitArcade là một ứng dụng độc lập và không liên kết hoặc được Nintendo chứng thực. Tất cả các nhãn hiệu thuộc về chủ sở hữu tương ứng."
+  }
 }
