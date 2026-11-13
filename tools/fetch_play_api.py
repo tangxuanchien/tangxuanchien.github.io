@@ -159,9 +159,10 @@ def sync_listing(s, base: str, d: dict, slug: str, default_lang: str) -> str:
 
     d["play_images"] = current
     report = f"listing {lang}, {len(shots)} screenshots"
-    if vi is en:
+    if vi is en and d.get("tagline"):
         # No Vietnamese listing in Play Console: keep the site's own EN/VI text rather than
-        # replacing the Vietnamese with English. Images above are still synced.
+        # replacing the Vietnamese with English. Images above are still synced. (A brand-new
+        # app with no text yet falls through and takes the English listing.)
         return report + " (text kept: no vi listing)"
     if en.get("title"):
         d["name"] = en["title"]

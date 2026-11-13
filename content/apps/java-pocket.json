@@ -1,0 +1,73 @@
+{
+  "name": "Java Pocket: Nokia Emulator",
+  "short": "Java Pocket",
+  "package": "vn.txclabs.nokia",
+  "status": "testing",
+  "order": 70,
+  "play": {
+    "track": "closed",
+    "version": "2 (1.0.0)",
+    "version_code": 2
+  },
+  "icon": "/assets/img/java-pocket/icon.webp",
+  "banner": "/assets/img/java-pocket/banner.webp",
+  "screenshots": [
+    "/assets/img/java-pocket/shot-1.webp",
+    "/assets/img/java-pocket/shot-2.webp",
+    "/assets/img/java-pocket/shot-3.webp",
+    "/assets/img/java-pocket/shot-4.webp",
+    "/assets/img/java-pocket/shot-5.webp",
+    "/assets/img/java-pocket/shot-6.webp"
+  ],
+  "landscape": false,
+  "play_images": {
+    "icon": "94e5f0d690162ec8706645692dea0ab935556e57",
+    "header": "20441df45ae40b404e62f449d9d3766bbdbf7ba1",
+    "screenshots": [
+      "9b65334c340874e393d13f2775e8c53d65364bda",
+      "b4c97a42970b51ae5d9b6db4a4faed16d33c7aaa",
+      "6d5b924e7ce91eca7ae40da9540fafd5c6ce7397",
+      "e2b60b71b407641ea776137c6d83b57c99d9f4c4",
+      "6f2377a601cafc9923c3c6fa6039d76ff448870a",
+      "0755a7df922475aca8a6b0b93d1723fee8e7e246"
+    ]
+  },
+  "tagline": {
+    "en": "Turn your Android phone into a classic mobile phone and play J2ME games.",
+    "vi": "Turn your Android phone into a classic mobile phone and play J2ME games."
+  },
+  "about": {
+    "en": "Bring back the feel of classic mobile phones with Java Pocket. Explore a collection of retro handset designs, then run compatible J2ME games in a nostalgic phone interface with an on-screen keypad. Import your own J2ME game files in .jar format, choose a phone model, and use familiar controls such as the D-pad, number keys, and soft keys. You can also adjust the screen size for each imported game and keep your favourites close at hand. Features",
+    "vi": "Bring back the feel of classic mobile phones with Java Pocket. Explore a collection of retro handset designs, then run compatible J2ME games in a nostalgic phone interface with an on-screen keypad. Import your own J2ME game files in .jar format, choose a phone model, and use familiar controls such as the D-pad, number keys, and soft keys. You can also adjust the screen size for each imported game and keep your favourites close at hand. Features"
+  },
+  "features": [
+    {
+      "en": "Browse and choose from classic-style phone models",
+      "vi": "Browse and choose from classic-style phone models"
+    },
+    {
+      "en": "Explore a catalog of games",
+      "vi": "Explore a catalog of games"
+    },
+    {
+      "en": "Import and play compatible J2ME .jar games",
+      "vi": "Import and play compatible J2ME .jar games"
+    },
+    {
+      "en": "Control games with an on-screen keypad",
+      "vi": "Control games with an on-screen keypad"
+    },
+    {
+      "en": "Choose a display size for imported games",
+      "vi": "Choose a display size for imported games"
+    },
+    {
+      "en": "Organize imported and favourite games",
+      "vi": "Organize imported and favourite games"
+    }
+  ],
+  "note": {
+    "en": "Game compatibility may vary. Java Pocket does not include game files; import games you have the right to use.",
+    "vi": "Game compatibility may vary. Java Pocket does not include game files; import games you have the right to use."
+  }
+}
