@@ -2,36 +2,44 @@
   "name": "Colorumi: Color by Number",
   "short": "Colorumi",
   "package": "com.txclabs.color",
-  "status": "testing",
+  "status": "live",
   "order": 30,
   "category": {
-    "en": "Art & Design",
-    "vi": "Nghệ thuật"
+    "en": "Entertainment",
+    "vi": "Giải trí"
   },
   "tagline": {
-    "en": "Relaxing pixel color-by-number, plus turn your own photos into paintings.",
-    "vi": "Tô tranh pixel theo số thư giãn, và biến ảnh của bạn thành tranh tô màu."
+    "en": "Color pixel art by number, create art from photos, and relax every day",
+    "vi": "Tô màu tranh pixel theo số, tạo tác phẩm nghệ thuật từ ảnh và thư giãn mỗi ngày."
   },
   "about": {
-    "en": "Colorumi turns tiny color cells into vivid pictures. Choose a picture you like, find each color by its number and watch the image appear with every tap. Explore pixel art across animals, food, flowers and landscapes, or turn your own photo into a new picture to color.",
-    "vi": "Colorumi biến từng ô màu nhỏ thành một bức tranh rực rỡ. Chọn tranh bạn thích, tìm màu theo số và tận hưởng cảm giác hình ảnh dần hiện ra sau mỗi lần chạm. Khám phá tranh pixel nhiều chủ đề như động vật, đồ ăn, hoa lá, phong cảnh, hoặc dùng ảnh của bạn để tạo tranh tô số mới."
+    "en": "Colorumi turns individual color cells into vibrant, stunning images. Simply choose a picture you like, match the colors to the numbers, and watch the artwork come to life with every tap. Explore a wide variety of pixel art themes, including animals, food, flowers, and landscapes. You can save your progress to continue coloring whenever you’d like, or even transform your own photos into custom paint-by-number projects. What you can do in Colorumi:",
+    "vi": "Colorumi biến các ô màu riêng lẻ thành những hình ảnh sống động, tuyệt đẹp. Chỉ cần chọn một bức tranh bạn thích, ghép màu sắc với các con số và xem tác phẩm nghệ thuật dần hiện ra sau mỗi lần chạm. Khám phá nhiều chủ đề nghệ thuật pixel đa dạng, bao gồm động vật, thực phẩm, hoa và phong cảnh. Bạn có thể lưu tiến trình của mình để tiếp tục tô màu bất cứ khi nào bạn muốn, hoặc thậm chí biến ảnh của chính bạn thành các dự án tô màu theo số tùy chỉnh. Những điều bạn có thể làm trong Colorumi:"
   },
   "features": [
     {
-      "en": "Pixel art across animals, food, flowers and places",
-      "vi": "Tranh pixel đủ chủ đề động vật, đồ ăn, hoa lá, phong cảnh"
+      "en": "Enjoy paint-by-number coloring with a clear color palette and intuitive, simple touch controls.",
+      "vi": "Thưởng thức tô màu theo số với bảng màu rõ ràng và điều khiển cảm ứng trực quan, đơn giản."
     },
     {
-      "en": "Pixelfy: create a new picture from any photo",
-      "vi": "Pixelfy: tạo tranh mới từ bất kỳ ảnh nào"
+      "en": "Create your own pixel art from photos on your phone.",
+      "vi": "Tạo tác phẩm nghệ thuật pixel của riêng bạn từ ảnh trên điện thoại."
     },
     {
-      "en": "Daily picture, streaks and hints",
-      "vi": "Tranh mỗi ngày, chuỗi tô màu và gợi ý"
+      "en": "Discover the \"Picture of the Day,\" maintain your coloring streak, and earn helpful hints.",
+      "vi": "Khám phá \"Hình ảnh trong ngày\", duy trì chuỗi tô màu của bạn và nhận được các gợi ý hữu ích."
     },
     {
-      "en": "No account needed, progress saved on device",
-      "vi": "Không cần tài khoản, tiến độ lưu trên máy"
+      "en": "Use tools like hints, area-fill, and undo whenever you need them.",
+      "vi": "Sử dụng các công cụ như gợi ý, tô vùng và hoàn tác bất cứ khi nào bạn cần."
+    },
+    {
+      "en": "Keep track of your completed artworks and milestones.",
+      "vi": "Theo dõi các tác phẩm nghệ thuật đã hoàn thành và các cột mốc của bạn."
+    },
+    {
+      "en": "Customize sound and vibration settings to your preference.",
+      "vi": "Tùy chỉnh cài đặt âm thanh và rung theo sở thích của bạn."
     }
   ],
   "landscape": false,
@@ -46,9 +54,9 @@
   "privacy": "content/legal/colorumi-privacy.html",
   "terms": "content/legal/colorumi-terms.html",
   "play": {
-    "track": "closed",
-    "version": "3 (0.1.0)",
-    "version_code": 3
+    "track": "production",
+    "version": "4 (1.0.0)",
+    "version_code": 4
   },
   "play_images": {
     "icon": "beaef2c84b8384038b353dceeb2e84b205bbdff4",
@@ -59,5 +67,21 @@
       "b8b3d34987f4ab5fa1dad3c8a7b839414978683a",
       "2e444b92fa37580a07cda35ba76d6c50d3c7d0b9"
     ]
+  },
+  "store_images": {
+    "icon": "https://play-lh.googleusercontent.com/Lc4xECIr5jSFrFMAHKe-iWBglgxgVLu5wDbbQ8xwWGoURMuzL9dkGufCRsO6Va6T49f18WdTg-PGwh_G3cO4Fw",
+    "header": "https://play-lh.googleusercontent.com/uSdfGKba5Hn_OIkNo8k37m2yLTeiRtHDyU_xFZ4rz_63Ka09XRI1pkdNTfp8myBNkl3KoPmxZmv7nita5x-s",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/ybnd-_d6p8hcqjNqlPuphnhBKH-mQ2Tlj5AvBi02NMXh06AbObi_2gwpdST1yQJ2VQ2gRUAMmD1LhOu_Wp3f",
+      "https://play-lh.googleusercontent.com/IAa8aqrTwCCPa1UPsnhXW0l_A8wiXySprPt4nvZGzz4QaGFIF6DrlQKj0niqWB2rpqnroMWzqmdSqxXIGMta4Q",
+      "https://play-lh.googleusercontent.com/c7Eg8czkUMA7ReMDe4bosGwx7adyWN6frI2QnO1H8b_Je8RNflp7bs3LL-4aR5vDz2eUjE8JTXfBvzYfIlnmGVc",
+      "https://play-lh.googleusercontent.com/f68VNziyNnrH8plYUiwT7t0K_Cxdr47KJ9K8rF9ws5tzTCvqsdVIHgjKSBClYQhTYN2DiBEDUi1_fs3HZuQlAI0"
+    ]
+  },
+  "installs": "10+",
+  "install_count": 44,
+  "note": {
+    "en": "Colorumi saves your progress directly on your device—no account creation required. Take a few minutes each day to create something beautiful, in your own unique way.",
+    "vi": "Colorumi lưu tiến trình của bạn trực tiếp trên thiết bị — không cần tạo tài khoản. Hãy dành vài phút mỗi ngày để tạo ra một điều gì đó đẹp đẽ, theo cách riêng của bạn."
   }
 }

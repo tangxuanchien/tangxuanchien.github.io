@@ -75,5 +75,10 @@
     "track": "production",
     "version": "4 (1.0.1)",
     "version_code": 4
+  },
+  "play_stats": {
+    "date": "2026-11-08",
+    "active_installs": 30,
+    "total_installs": 0
   }
 }
