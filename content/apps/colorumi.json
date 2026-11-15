@@ -55,8 +55,8 @@
   "terms": "content/legal/colorumi-terms.html",
   "play": {
     "track": "production",
-    "version": "5 (1.0.0)",
-    "version_code": 5
+    "version": "6 (1.0.1)",
+    "version_code": 6
   },
   "play_images": {
     "icon": "beaef2c84b8384038b353dceeb2e84b205bbdff4",
