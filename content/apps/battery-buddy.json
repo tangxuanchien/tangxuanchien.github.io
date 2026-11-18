@@ -79,6 +79,9 @@
   "play_stats": {
     "date": "2026-11-09",
     "active_installs": 30,
-    "total_installs": 0
+    "total_installs": 0,
+    "subscribers": 1,
+    "new_subscriptions": 0,
+    "subscriptions_date": "2026-11-16"
   }
 }
