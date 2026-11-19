@@ -2,19 +2,19 @@
   "name": "Domi: Photobooth Camera",
   "short": "Domi",
   "package": "com.txclabs.photobooth",
-  "status": "testing",
+  "status": "live",
   "order": 20,
   "category": {
     "en": "Photography",
     "vi": "Nhiếp ảnh"
   },
   "tagline": {
-    "en": "Make photobooth strips with cute frames, layouts, stickers and filters.",
-    "vi": "Tạo dải ảnh photobooth với khung xinh, bố cục, sticker và bộ lọc."
+    "en": "Take photobooth photos with cute frames, filters, and stickers in Domi.",
+    "vi": "Chụp ảnh lưu niệm với khung ảnh, bộ lọc và nhãn dán dễ thương trong Domi."
   },
   "about": {
-    "en": "Domi turns your phone into a photobooth. Pick a frame by theme, choose a layout, then shoot right inside the frame or use photos from your gallery. Finish with filters, stickers and text, and save or share your strip in the exact frame ratio.",
-    "vi": "Domi biến điện thoại thành một quầy photobooth. Chọn khung theo chủ đề, chọn bố cục rồi chụp ngay trong khung hoặc lấy ảnh từ thư viện. Hoàn thiện với bộ lọc, sticker và chữ, sau đó lưu hoặc chia sẻ đúng tỉ lệ khung."
+    "en": "Turn everyday moments into photobooth memories with Domi Photobooth. Pick a frame you love, strike a pose, and take photos right on your phone. Capture each shot yourself, use a timer to take a series of photos, or choose pictures from your gallery. Once your photos are in the frame, make them your own with filters, color adjustments, stickers, and text. Create vertical photo strips or grid layouts. When you’re done, save your creation to your phone, revisit it in the app’s library, and share it with friends. Pick a frame, strike a pose, and keep the moment with Domi!",
+    "vi": "Biến những khoảnh khắc thường ngày thành kỷ niệm đáng nhớ với Domi Photobooth. Chọn khung hình bạn yêu thích, tạo dáng và chụp ảnh ngay trên điện thoại của bạn. Tự chụp từng bức ảnh, sử dụng hẹn giờ để chụp một loạt ảnh hoặc chọn ảnh từ thư viện của bạn. Sau khi ảnh được ghép vào khung, hãy tùy chỉnh chúng với bộ lọc, điều chỉnh màu sắc, nhãn dán và văn bản. Tạo dải ảnh dọc hoặc bố cục dạng lưới. Khi hoàn tất, hãy lưu tác phẩm của bạn vào điện thoại, xem lại trong thư viện của ứng dụng và chia sẻ với bạn bè. Chọn khung hình, tạo dáng và lưu giữ khoảnh khắc với Domi!"
   },
   "features": [
     {
@@ -45,9 +45,9 @@
   "privacy": "content/legal/domi-privacy.html",
   "terms": "content/legal/domi-terms.html",
   "play": {
-    "track": "closed",
-    "version": "3 (1.0.0)",
-    "version_code": 3
+    "track": "production",
+    "version": "5 (1.0.0)",
+    "version_code": 5
   },
   "play_images": {
     "icon": "7d6cb3c2ffb7cb59268777f397e7462044add760",
@@ -57,5 +57,16 @@
       "5cddc7b5f3b2fe550d1e1da296fc181f90b79a30",
       "784d17440e5c1255ed3ad56896750e031a038240"
     ]
-  }
+  },
+  "store_images": {
+    "icon": "https://play-lh.googleusercontent.com/o_TREQuKkK5pi55M4C_WyB-iVmg6ogezP8CS5vb8eLeAxAFkFq8LcIt0TZdqnNGzjBTRZP8r9xHWzZ4T6gK66Bw",
+    "header": "https://play-lh.googleusercontent.com/_1OL33dQ9IL6ssVLL0WdaPIAZqNxK38WsXTczuywssjID4-_cUMS4kry8P4p8D1LR0QrLTR6xYHO_LBKtqaAYA",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/NreYYRORHB-NDzibCALurm7XL710ohJjMMlfTfN6QezJwQRNDjICq3Po9uGvrF6AANw3AF8CqYgv_7f9dTW9JA",
+      "https://play-lh.googleusercontent.com/IGSOqdoASwJZeR37Wata2NyMO_GiLjouQo3PEV-h4lRJgZgOY_awEUx3oM86yPnO13E9wqTjkyfV9tKH4XXK",
+      "https://play-lh.googleusercontent.com/foiEH9ktgoOnsnU1s4Xr3hbvBrbhP7RpRYSnhAXePNJK5ImYY-TTwO-vkfoLl_g-llkvC_KPBb9xqniZTD3n1Q"
+    ]
+  },
+  "installs": "10+",
+  "install_count": 44
 }
