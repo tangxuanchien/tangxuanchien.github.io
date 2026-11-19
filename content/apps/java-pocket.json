@@ -69,5 +69,10 @@
   "note": {
     "en": "Game compatibility may vary. Java Pocket does not include game files; import games you have the right to use.",
     "vi": "Game compatibility may vary. Java Pocket does not include game files; import games you have the right to use."
+  },
+  "play_stats": {
+    "date": "2026-11-15",
+    "active_installs": 0,
+    "total_installs": 0
   }
 }
