@@ -70,15 +70,15 @@
     ]
   },
   "installs": "50+",
-  "install_count": 77,
+  "install_count": 90,
   "play": {
     "track": "production",
     "version": "4 (1.0.1)",
     "version_code": 4
   },
   "play_stats": {
-    "date": "2026-11-15",
-    "active_installs": 0,
+    "date": "2026-11-16",
+    "active_installs": 29,
     "total_installs": 0,
     "subscribers": 1,
     "new_subscriptions": 0,
