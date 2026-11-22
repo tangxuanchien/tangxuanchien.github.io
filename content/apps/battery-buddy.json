@@ -69,16 +69,16 @@
       "https://play-lh.googleusercontent.com/WI-IuXeCYESoPCcW6C-npUYEti8YZzJ3OIAjiKpiRxQDtPSOH9Plo2NjFNyuaVQezp_fW1A9LPPcLOKz4aO3"
     ]
   },
-  "installs": "50+",
-  "install_count": 97,
+  "installs": "100+",
+  "install_count": 100,
   "play": {
     "track": "production",
     "version": "6 (1.0.1)",
     "version_code": 6
   },
   "play_stats": {
-    "date": "2026-11-17",
-    "active_installs": 34,
+    "date": "2026-11-18",
+    "active_installs": 32,
     "total_installs": 0,
     "subscribers": 1,
     "new_subscriptions": 0,
