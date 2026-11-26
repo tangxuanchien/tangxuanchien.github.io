@@ -70,11 +70,11 @@
     ]
   },
   "installs": "100+",
-  "install_count": 108,
+  "install_count": 115,
   "play": {
     "track": "production",
-    "version": "6 (1.0.1)",
-    "version_code": 6
+    "version": "11 (1.0.9)",
+    "version_code": 11
   },
   "play_stats": {
     "date": "2026-11-18",
